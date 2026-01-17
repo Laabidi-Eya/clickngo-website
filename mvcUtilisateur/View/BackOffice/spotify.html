@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecteur Audio Simple</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard">
+        <h1>Mon Lecteur Audio</h1>
+        
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Rechercher une chanson...">
+            <button id="search-btn"><i class="fas fa-search"></i></button>
+        </div>
+        
+        <div class="results" id="results">
+            <!-- Les résultats apparaîtront ici -->
+        </div>
+        
+        <div class="player">
+            <div class="song-info">
+                <h3 id="song-title">Aucune chanson sélectionnée</h3>
+                <p id="song-artist"></p>
+            </div>
+            <audio id="audio-player" controls></audio>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+.dashboard {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+}
+
+.search-container {
+    display: flex;
+    margin: 20px 0;
+}
+
+#search-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px 0 0 4px;
+    font-size: 16px;
+}
+
+#search-btn {
+    padding: 10px 15px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#search-btn:hover {
+    background: #2980b9;
+}
+
+.results {
+    margin: 20px 0;
+}
+
+.song-item {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.song-item:hover {
+    background: #f9f9f9;
+}
+
+.play-btn {
+    background: #2ecc71;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.play-btn:hover {
+    background: #27ae60;
+}
+
+.player {
+    margin-top: 20px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.song-info {
+    margin-bottom: 10px;
+}
+
+#song-title {
+    margin: 0;
+}
+
+#song-artist {
+    margin: 5px 0 0 0;
+    color: #666;
+}
+
+audio {
+    width: 100%;
+}
+
+</style>
+
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('search-input');
+    const searchBtn = document.getElementById('search-btn');
+    const resultsDiv = document.getElementById('results');
+    const playerDiv = document.getElementById('player');
+    const audioPlayer = document.getElementById('audio-player');
+    const playerTitle = document.getElementById('player-title');
+    const playerArtist = document.getElementById('player-artist');
+    const playerThumbnail = document.getElementById('player-thumbnail');
+
+    // Utilisation d'un proxy CORS pour contourner les restrictions
+    const CORS_PROXY = "https://cors-anywhere.herokuapp.com/";
+    const YOUTUBE_API_KEY = "AIzaSyAO_FJ2SlqU8Q4STEHLGCilw_Y9_11qcW8"; // Remplacez par votre clé API
+    
+    // Fonction de recherche
+    async function searchMusic(query) {
+        try {
+            resultsDiv.innerHTML = '<p>Recherche en cours...</p>';
+            
+            // Recherche YouTube (vous pouvez utiliser une autre API si vous préférez)
+            const response = await fetch(`${CORS_PROXY}https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=${encodeURIComponent(query)}+musique&type=video&key=${YOUTUBE_API_KEY}`);
+            
+            if (!response.ok) throw new Error("Erreur de recherche");
+            
+            const data = await response.json();
+            
+            if (data.items.length === 0) {
+                resultsDiv.innerHTML = '<p>Aucun résultat trouvé</p>';
+                return;
+            }
+            
+            displayResults(data.items);
+        } catch (error) {
+            console.error("Erreur:", error);
+            resultsDiv.innerHTML = '<p>Erreur lors de la recherche</p>';
+        }
+    }
+    
+    // Afficher les résultats
+    function displayResults(videos) {
+        resultsDiv.innerHTML = '';
+        
+        videos.forEach(video => {
+            const songElement = document.createElement('div');
+            songElement.className = 'song-item';
+            songElement.innerHTML = `
+                <img class="thumbnail" src="${video.snippet.thumbnails.default.url}" alt="Miniature">
+                <div class="song-info">
+                    <div class="song-title">${video.snippet.title}</div>
+                    <div class="song-artist">${video.snippet.channelTitle}</div>
+                </div>
+            `;
+            
+            songElement.addEventListener('click', () => {
+                playSong(video.id.videoId, video.snippet.title, video.snippet.channelTitle, video.snippet.thumbnails.medium.url);
+            });
+            
+            resultsDiv.appendChild(songElement);
+        });
+    }
+    
+    // Jouer une chanson
+    function playSong(videoId, title, artist, thumbnail) {
+        playerDiv.style.display = 'flex';
+        playerTitle.textContent = title;
+        playerArtist.textContent = artist;
+        playerThumbnail.src = thumbnail;
+        
+        // Utilisation d'un service pour convertir YouTube en audio
+        audioPlayer.src = `https://ytstream-download-youtube-videos.p.rapidapi.com/dl?id=${videoId}`;
+        audioPlayer.play();
+    }
+    
+    // Événements
+    searchBtn.addEventListener('click', () => {
+        if (searchInput.value.trim() !== '') {
+            searchMusic(searchInput.value.trim());
+        }
+    });
+    
+    searchInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter' && searchInput.value.trim() !== '') {
+            searchMusic(searchInput.value.trim());
+        }
+    });
+});

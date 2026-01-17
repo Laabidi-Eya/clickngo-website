@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Supprimer un Produit</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="sidebar">
+    <div>
+      <img src="logo.png" alt="Logo" class="logo">
+      <h1>Click'N'go</h1>
+      <div class="menu-item" data-section="overview">🏠 Tableau de Bord</div>
+      <div class="menu-item active" data-section="products">📦 Produits</div>
+      <div class="menu-item" data-section="orders">📋 Commandes</div>
+      <div class="menu-item" data-section="promos">🎁 Promotions</div>
+      <div class="menu-item" data-section="reviews">⭐ Avis</div>
+      <div class="menu-item" data-section="settings">⚙️ Réglages</div>
+    </div>
+    <div class="menu-item">🚪 Déconnexion</div>
+  </div>
+
+  <div class="dashboard">
+    <div class="dashboard-section active" id="products">
+      <div class="header">
+        <h2>Gestion des Produits 📦</h2>
+        <div class="profile-container">
+          <div class="profile">
+            <img src="user.webp" alt="Profile Picture">
+          </div>
+        </div>
+      </div>
+
+      <div class="add-product-nav">
+        <a href="index.html#products" class="add-product-btn">➕</a>
+        <a href="index.html#products" class="btn">Retour</a>
+      </div>
+
+      <div class="product-cards">
+        <div class="card" data-id="1">
+          <h3>Montre connectée</h3>
+          <p>Stock: 15 unités | Prix: 3347 TND<br>Achat: Oui | Location: Oui</p>
+          <div class="progress-bar">
+            <div class="progress-bar-fill" style="width: 30%;"></div>
+          </div>
+          <div class="card-buttons">
+            <button class="btn delete-button" onclick="confirmDelete(1)">Supprimer</button>
+          </div>
+        </div>
+        <div class="card" data-id="2">
+          <h3>Tapis de yoga</h3>
+          <p>Stock: 50 unités | Prix: 1672 TND<br>Achat: Oui | Location: Non</p>
+          <div class="progress-bar">
+            <div class="progress-bar-fill" style="width: 75%;"></div>
+          </div>
+          <div class="card-buttons">
+            <button class="btn delete-button" onclick="confirmDelete(2)">Supprimer</button>
+          </div>
+        </div>
+        <div class="card" data-id="3">
+          <h3>Caméra instantanée</h3>
+          <p>Stock: 30 unités | Prix: 667 TND<br>Achat: Oui | Location: Oui</p>
+          <div class="progress-bar">
+            <div class="progress-bar-fill" style="width: 50%;"></div>
+          </div>
+          <div class="card-buttons">
+            <button class="btn delete-button" onclick="confirmDelete(3)">Supprimer</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="scripts.js"></script>
+  <script>
+    function confirmDelete(id) {
+      if (confirm('Êtes-vous sûr de vouloir supprimer ce produit ?')) {
+        alert(`Produit ${id} supprimé !`);
+        window.location.reload();
+      }
+    }
+
+    // Automatically delete the product based on URL parameter
+    window.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const productId = urlParams.get('id');
+      if (productId) {
+        confirmDelete(productId);
+        window.location.reload();
+      }
+    });
+  </script>
+</body>
+</html>

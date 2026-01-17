@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenRouter Chatbot</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex flex-col items-center justify-center min-h-screen">
+    <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-2xl">
+        <h1 class="text-2xl font-bold mb-4 text-center">OpenRouter Chatbot (DeepSeek)</h1>
+        <div id="chat-container" class="h-96 overflow-y-auto border border-gray-300 p-4 mb-4 rounded">
+            <div id="chat-messages"></div>
+        </div>
+        <div class="flex">
+            <input type="text" id="user-input" class="flex-1 p-2 border border-gray-300 rounded-l focus:outline-none" placeholder="Type your message..." />
+            <button onclick="sendMessage()" class="bg-blue-500 text-white p-2 rounded-r hover:bg-blue-600">Send</button>
+        </div>
+    </div>
+
+    <script>
+        async function sendMessage() {
+            const input = document.getElementById('user-input');
+            const message = input.value.trim();
+            if (!message) return;
+
+            appendMessage('You', message, 'text-right bg-blue-100');
+            input.value = '';
+
+            try {
+                console.log('Sending message:', message);
+                const response = await fetch('/clickngo_api/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message })
+                });
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                console.log('Received response:', data);
+                appendMessage('Bot', data.response, 'text-left bg-gray-200');
+            } catch (error) {
+                console.error('Fetch error:', error);
+                appendMessage('Bot', `Error: ${error.message}`, 'text-left bg-red-200');
+            }
+        }
+
+        function appendMessage(sender, message, style) {
+            const chatMessages = document.getElementById('chat-messages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `p-2 m-2 rounded ${style}`;
+            messageDiv.innerHTML = `<strong>${sender}:</strong> ${message}`;
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        document.getElementById('user-input').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') sendMessage();
+        });
+    </script>
+</body>
+</html>

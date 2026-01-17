@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Choisir un lieu avec Mapbox</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <style>
+    #map {
+      height: 400px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Bouton pour ouvrir la carte -->
+  <button id="choose-location">Choisir un lieu sur la carte</button>
+
+  <!-- Conteneur pour la carte -->
+  <div id="map" style="display: none;"></div>
+
+  <!-- Champs cachés pour stocker les coordonnées -->
+  <input type="hidden" id="latitude" name="latitude">
+  <input type="hidden" id="longitude" name="longitude">
+
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <script>
+    // Initialiser la carte et les variables globales
+    let map;
+    let marker;
+
+    // Fonction pour initialiser la carte avec Mapbox
+    function initMap() {
+      // Créer la carte centrée sur Paris (latitude: 48.8566, longitude: 2.3522)
+      map = L.map('map').setView([48.8566, 2.3522], 13);
+
+      // Ajouter les tuiles de Mapbox
+      L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaGFvYXVzMDEiLCJhIjoiY21hOHhqcGttMWJ5NjJtczg3eGJxazM0MiJ9.lm0YeqM7TkpDT4r6_Pf6aw', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 18,
+        id: 'mapbox/streets-v11',  // Tu peux changer ce style pour d'autres options comme satellite, outdoors, etc.
+        tileSize: 512,
+        zoomOffset: -1,
+      }).addTo(map);
+
+      // Écouter les clics sur la carte
+      map.on('click', function(event) {
+        // Enlever le précédent marqueur si présent
+        if (marker) {
+          marker.remove();
+        }
+
+        // Ajouter un marqueur à l'endroit cliqué
+        marker = L.marker([event.latlng.lat, event.latlng.lng]).addTo(map);
+
+        // Mettre à jour les champs cachés avec les coordonnées
+        document.getElementById("latitude").value = event.latlng.lat;
+        document.getElementById("longitude").value = event.latlng.lng;
+      });
+    }
+
+    // Ouvrir la carte lorsque le bouton est cliqué
+    document.getElementById("choose-location").addEventListener("click", function() {
+      document.getElementById("map").style.display = "block";  // Afficher la carte
+      initMap();  // Initialiser la carte
+    });
+  </script>
+
+</body>
+</html>

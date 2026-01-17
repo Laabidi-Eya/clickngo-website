@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>ClickCapture – Explore la Tunisie par photo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #ff9a9e, #fad0c4);
+      color: #333;
+      text-align: center;
+      padding: 2em;
+    }
+    h1 {
+      color: #fff;
+      margin-bottom: 1em;
+    }
+    #preview {
+      margin: 1em auto;
+      max-width: 300px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+    .btn {
+      padding: 10px 20px;
+      margin: 10px;
+      background: #d36cfd;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background: #b14dff;
+    }
+    #result {
+      margin-top: 2em;
+      padding: 1em;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    #result img {
+      max-width: 100%;
+      border-radius: 12px;
+      margin-bottom: 1em;
+    }
+  </style>
+</head>
+<body>
+  <h1>📸 ClickCapture</h1>
+  <p>Envoie une photo d’un lieu, on te trouve la vibe tunisienne !</p>
+
+  <input type="file" accept="image/*" onchange="previewImage(event)">
+  <button class="btn" onclick="useWebcam()">📷 Prendre une photo</button>
+  <br>
+  <img id="preview" src="" style="display:none;">
+  <br>
+  <button class="btn" onclick="sendToAI()">🔍 Analyser l’image</button>
+
+  <div id="result" style="display:none;">
+    <h2>Suggestion IA</h2>
+    <img id="suggestedImage" src="">
+    <h3 id="suggestedName"></h3>
+    <p id="suggestedDesc"></p>
+  </div>
+
+  <video id="camera" width="300" autoplay style="display:none;"></video>
+
+  <script>
+    let selectedImage = null;
+
+    function previewImage(event) {
+      const file = event.target.files[0];
+      if (file) {
+        selectedImage = file;
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          document.getElementById('preview').src = e.target.result;
+          document.getElementById('preview').style.display = 'block';
+        }
+        reader.readAsDataURL(file);
+      }
+    }
+
+    function useWebcam() {
+      const video = document.getElementById('camera');
+      video.style.display = 'block';
+      navigator.mediaDevices.getUserMedia({ video: true })
+        .then(stream => {
+          video.srcObject = stream;
+          document.querySelector('.btn[onclick="useWebcam()"]').innerText = "📸 Capturer";
+          document.querySelector('.btn[onclick="useWebcam()"]').onclick = () => capturePhoto(video, stream);
+        });
+    }
+
+    function capturePhoto(video, stream) {
+      const canvas = document.createElement('canvas');
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+      canvas.getContext('2d').drawImage(video, 0, 0);
+      canvas.toBlob(blob => {
+        selectedImage = new File([blob], "captured.png", {type: "image/png"});
+        document.getElementById('preview').src = canvas.toDataURL();
+        document.getElementById('preview').style.display = 'block';
+        video.srcObject.getTracks().forEach(track => track.stop());
+        video.style.display = 'none';
+      }, "image/png");
+    }
+
+function sendToAI() {
+  if (!selectedImage) {
+    alert("Choisis ou prends une photo !");
+    return;
+  }
+
+  const formData = new FormData();
+  formData.append("image", selectedImage);
+
+  fetch("http://localhost:5000/analyze", {
+    method: "POST",
+    body: formData
+  })
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById('result').style.display = 'block';
+    document.getElementById('suggestedImage').src = data.image;
+    document.getElementById('suggestedName').innerText = data.name;
+    document.getElementById('suggestedDesc').innerText = data.description;
+  })
+  .catch(err => {
+    console.error("Erreur :", err);
+    alert("Erreur de communication avec le serveur IA.");
+  });
+}
+
+  </script>
+</body>
+</html>

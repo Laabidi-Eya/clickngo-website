@@ -1,0 +1,1043 @@
+        /* Votre CSS existant reste inchangé */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: white;
+            min-height: 100vh;
+
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* ... (tout le reste de votre CSS existant) ... */
+	h1 {
+            text-align: center;
+            color: #c122c1;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Improved styles for search input */
+        #searchInput {
+            width: 100%;
+            max-width: 500px;
+            padding: 0.75rem 1rem;
+            font-size: 1.2rem;
+            border: 2px solid #DF7AFF;
+            border-radius: 12px;
+            outline: none;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            margin: 0 auto 2rem auto;
+            display: block;
+        }
+
+        #searchInput:focus {
+            border-color: #7a2ee5;
+            box-shadow: 0 0 8px rgba(122, 46, 229, 0.6);
+        }
+
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .options {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+
+        .option-card {
+            background: rgb(220, 171, 213);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            cursor: pointer;
+            transition: box-shadow 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .option-card:hover {
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .option-card img {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 1rem;
+        }
+
+        .option-card h2 {
+            color: #06090e;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .option-card p {
+            color: #41043d;
+        }
+
+        .form-section, .sponsorships-section, .event-detail-section, .tracking-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        /* Override for sponsorships-section to span full width with small margins */
+        .sponsorships-section {
+            max-width: 100% !important;
+            margin: 0 1rem !important;
+            padding: 2rem 0 !important;
+        }
+
+        .form-section h2, .sponsorships-section h2, .tracking-section h2 {
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: 700;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #a01aa0;
+        }
+
+        .back-button {
+            display: flex;
+            align-items: center;
+            color: #000000;
+            text-decoration: none;
+            margin-bottom: 1.5rem;
+            cursor: pointer;
+        }
+
+        .back-button:hover {
+            color: #000000;
+        }
+
+        /* Modern Form Styles */
+        .form-group {
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            color: #333;
+            font-size: 0.95rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            letter-spacing: 0.3px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 80%;
+            padding: 1.2rem;
+            border: 2px solid #e0e0e0;
+            background: #f8f9fa;
+            border-radius: 8px;
+            font-size: 1rem;
+            color: #333;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #9768D1;
+            background: #fff;
+            box-shadow: 0 0 0 4px rgba(151, 104, 209, 0.1);
+        }
+
+        .form-group input:hover,
+        .form-group textarea:hover,
+        .form-group select:hover {
+            border-color: #9768D1;
+        }
+
+        /* Title style */
+        #modalTitle {
+            color: #2d3436;
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            font-weight: 700;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            letter-spacing: -0.5px;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+
+
+        /* Button styles update */
+        button[type="submit"],
+        .button-primary,
+        #btnGoToForm {
+            border-radius: 8px;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        .button-secondary {
+            border-radius: 8px;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        /* File input update */
+        .form-group input[type="file"] {
+            padding: 1rem;
+            background: #fff;
+            border: 2px dashed #9768D1;
+            border-radius: 8px;
+        }
+
+        /* Radio buttons update */
+        .radio-option input[type="radio"] {
+            width: 24px;
+            height: 24px;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            margin-right: 12px;
+        }
+
+        .radio-option input[type="radio"]:checked::after {
+            width: 14px;
+            height: 14px;
+            background: #9768D1;
+            border-radius: 3px;
+        }
+
+        /* Modal form container update */
+        #modalSponsorForm {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        #modalSponsorForm .form-group {
+            width: 90%;
+            max-width: 420px;
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #modalSponsorForm label,
+        #modalSponsorForm input,
+        #modalSponsorForm textarea,
+        #modalSponsorForm select {
+            text-align: center;
+        }
+
+#modalSponsorForm button[type="submit"] {
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem; /* Plus de hauteur et de largeur */
+    background: linear-gradient(135deg, #a29bfe, #ffb1d3);
+    color: white;
+    border: none;
+    border-radius: 2rem;
+    font-size: 1rem; /* texte un peu plus grand */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(162, 155, 254, 0.4);
+    flex-grow: 1;
+    max-width: calc(60% - 0.5rem); /* optionnel : un peu plus large */
+}
+
+
+#modalSponsorForm button[type="submit"]:hover {
+    background-color: #8C40BE;
+    transform: scale(1.05);
+}
+
+
+
+        /* Error message update */
+        .error-message {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-top: 0.5rem;
+            padding-left: 0.5rem;
+        }
+
+        .error-message.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Modal form container modern style */
+        #modalSponsorForm {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        #modalTitle {
+            color: #333;
+            font-size: 1.8rem;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            font-weight: 600;
+        }
+
+        /* Form container */
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        button {
+            margin-top: 20px;
+            margin-left: 20px;
+            margin-right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    background: linear-gradient(135deg, #a29bfe, #ffb1d3);
+    color: white;
+    border: none;
+    border-radius: 2rem;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(162, 155, 254, 0.3);
+    flex-grow: 1;
+    justify-content: center;
+    max-width: calc(50% - 0.25rem);
+        }
+
+        button:hover {
+            background: #e6d5f5;
+            color: #9768D1;
+        }
+
+        .filters {
+            background: #d29ccb;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin-bottom: 2rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .filters {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+
+        .sponsorship-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            padding: 1.5rem;
+        }
+
+        @media (max-width: 1200px) {
+            .sponsorship-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .sponsorship-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .sponsorship-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .sponsorship-card {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(193, 34, 193, 0.15);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            min-height: 350px;
+            border: none;
+            padding-bottom: 2rem;
+        }
+
+        .sponsorship-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(193, 34, 193, 0.25);
+        }
+
+        .sponsorship-card img {
+            width: 160px !important;
+            height: 120px !important;
+            object-fit: cover;
+            display: block;
+            margin: 0.5rem auto 1rem auto;
+            border-radius: 8px;
+        }
+
+        .sponsorship-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .sponsorship-card h3 {
+            color: #C33B9E;
+            font-size: 1.5rem;
+            margin: 1.5rem 1.5rem 1rem;
+            font-weight: 600;
+        }
+
+        .sponsorship-card p {
+            color: #4b004b;
+            padding: 0 1.5rem;
+            line-height: 1.6;
+            flex-grow: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        .sponsorship-footer {
+            padding: 1.5rem;
+            border-top: 1px solid rgba(193, 34, 193, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+        }
+
+        .amount {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #eC4899;
+        }
+
+        .event-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+        }
+
+        .event-description {
+            color: #4B5563;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .event-details {
+            background: #F9FAFB;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .event-details h4 {
+            color: #1F2937;
+            margin-bottom: 1rem;
+        }
+
+        .divider {
+            height: 1px;
+            background: #E5E7EB;
+            margin: 2rem 0;
+        }
+
+        .proposal-status {
+            padding: 0.6rem 1.2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            width: fit-content;
+            box-shadow: 0 0 8px rgba(193, 34, 193, 0.3);
+        }
+
+        .status-pending {
+            background: #fff4e5;
+            color: #d56621;
+            border: 1px solid #f0c36d;
+        }
+
+        .status-approved {
+            background: #e6f4ea;
+            color: #09513c;
+            border: 1px solid #7ed08a;
+        }
+
+        .status-rejected {
+            background: #fbeaea;
+            color: #ac1515;
+            border: 1px solid #f5a1a1;
+        }
+
+        .proposal-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(193, 34, 193, 0.15);
+            margin-bottom: 1.5rem;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .proposal-card:hover {
+            box-shadow: 0 15px 30px rgba(193, 34, 193, 0.3);
+        }
+
+        .proposal-card h3 {
+            color: #4b004b;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .proposal-details {
+            margin-bottom: 1rem;
+            color: #6b7280;
+            font-size: 1rem;
+            line-height: 1.4;
+        }
+
+        .proposal-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+.proposal-actions a {
+    padding-right: 20px;
+            padding-left: 20px;
+            padding-bottom: 20px;
+            flex: 1;
+            text-align: center;
+            padding: 0.75rem 0;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+            user-select: none;
+            background: #9768D1;
+            color: white;
+            box-shadow: 0 4px 12px rgba(151, 104, 209, 0.4);
+        }
+
+        .proposal-actions a:hover {
+            background: #e6d5f5;
+            color: #9768D1;
+            box-shadow: 0 6px 20px rgba(151, 104, 209, 0.6);
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background-color: rgb(243, 244, 246);
+            padding: 3rem 1rem;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2.25rem;
+            font-weight: bold;
+            color: rgb(17, 24, 39);
+            margin-bottom: 3rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 1rem;
+        }
+
+.card {
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 1rem;
+    text-align: center;
+}
+
+        .card img {
+            width: 90%;
+            height: 280px;
+            object-fit: cover;
+            margin: 0.5rem auto;
+            border-radius: 20px;
+            display: block;
+        }
+
+
+.card-title {
+    font-size: 1rem;
+    color: #C71585; /* mauve foncé */
+    margin-top: 0.5rem;
+}
+
+.sponsors-scroll-container {
+    padding: 1rem 0;
+    scroll-behavior: smooth;
+}
+
+        .amount {
+            color: #ec4899;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin: 1.5rem;
+        }
+
+.request-sponsor-btn {
+    width: 110%;
+    height: 48px;
+    margin: 1.5rem auto;
+    padding: 0 1.5rem;
+    border: none;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #C574E8, #A94ED6); /* Dégradé harmonieux */
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: block;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(180, 80, 200, 0.2);
+}
+
+.request-sponsor-btn:hover {
+    background: linear-gradient(135deg, #B24BE1, #9434C3);
+    transform: scale(1.03);
+}
+
+
+        /* Reduce sold out image size */
+        .sponsorship-footer img[src*="sold.png"] {
+            width: 40px !important;
+            height: 40px !important;
+            margin: 0.5rem 0.5rem 0 0;
+            display: inline-block;
+        }
+
+        /* Card container */
+        .sponsorship-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2.5rem;
+            padding: 2.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .sponsorship-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                gap: 1.5rem;
+                padding: 1.5rem;
+            }
+
+            .card {
+                margin: 0.5rem;
+                padding: 1.5rem;
+            }
+
+            .card img {
+                width: calc(100% - 2rem);
+                margin: 0.5rem 1rem;
+            }
+
+            .request-sponsor-btn {
+                width: calc(100% - 2rem);
+                margin: 1rem;
+                padding: 1.2rem;
+            }
+        }
+
+
+
+        .card:hover .overlay {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 0.3rem;
+    box-sizing: border-box;
+}
+
+
+        .card-title {
+            color: white;
+            font-size: 1.25rem;
+            font-weight: bold;
+            text-align: center;
+            padding: 0 0.5rem;
+        }
+
+        @media (min-width: 640px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 768px) {
+            .grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .grid {
+                grid-template-columns: repeat(5, 1fr);
+            }
+            body {
+                padding: 3rem 2rem;
+            }
+        }
+        .container {
+  margin-bottom: 4rem; /* espace entre les blocs */
+}
+.video-container {
+    height: 100vh;           /* pleine hauteur de la fenêtre */
+    background-color: #ffffff;  /* fond optionnel */
+    width: 100vw;
+    overflow: hidden;
+}
+ 
+.video-container video {
+    width: 100%;
+    height: auto;
+    border-radius: 0;     /* remove rounded corners for full width */
+}
+        /* Ajout pour le modal d'événement */
+        .event-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .event-modal-content {
+            background: white;
+            border-radius: 20px;
+            padding: 3.5rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            max-width: 800px;
+            width: 95%;
+            margin: 2% auto;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #4b004b;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .close-modal:hover {
+            background: rgba(193, 34, 193, 0.1);
+            transform: rotate(90deg);
+        }
+
+        #offerDetailsSection {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            padding: 0 1.5rem;
+        }
+
+        #offerDetailsSection img {
+            width: calc(100% - 2rem);
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin:     rem 1rem;
+        }
+
+        #offerDetailsSection h2 {
+            color: #C33B9E;
+            text-align: center;
+            font-size: 2rem;
+            margin: 1rem 0;
+            padding: 0 1rem;
+        }
+
+        #offerDetailsSection p {
+            color: #4b004b;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin: 0.5rem 0;
+            padding-left: 2.5rem;
+            text-align: left;
+        }
+
+        #offerDetailsSection p strong {
+            color: #ec4899;
+        }
+
+#btnGoToForm {
+  width: 220px !important;
+  min-width: 140px;
+  max-width: 100%;
+  margin: 2rem auto 4rem auto; /* centré + marge bas + haut */
+  display: block;
+  color: white !important;
+  background-color: #d36ad3 !important; /* couleur douce matching */
+  padding: 0.75rem 1.5rem !important;
+  border: none !important;
+  border-radius: 30px !important;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 12px rgba(211, 106, 211, 0.4);
+  transition: all 0.3s ease;
+}
+
+#btnGoToForm:hover {
+            background: #e6d5f5;
+            color: #9768D1;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(160, 26, 160, 0.5);
+}
+
+
+        /* Benefits List in Modal */
+        #offerBenefits {
+            list-style: none;
+            padding: 0 2rem;
+            margin: 1.5rem 0;
+        }
+
+        #offerBenefits li {
+            padding: 0.8rem 0;
+            color: #4b004b;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        #offerBenefits li:before {
+            content: "•";
+            color: #c122c1;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        /* Responsive Modal Adjustments */
+        @media (max-width: 768px) {
+            .event-modal-content {
+                padding: 2.5rem;
+            }
+
+            #offerDetailsSection {
+                gap: 1.5rem;
+            }
+
+            .request-sponsor-btn,
+            #btnGoToForm,
+            #modalSponsorForm button[type="submit"] {
+                width: calc(100% - 2rem);
+                margin: 1rem;
+            }
+
+            #modalSponsorForm .form-group {
+                margin: 0 0.5rem 1rem;
+            }
+        }
+
+
+        /* ========== FOOTER STYLES ========== */
+
+/* ========== HEADER STYLES ========== */
+.main-header {
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 1000;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+
+.logo {
+    height: 180px;
+    width: auto;
+}
+
+.register-btn {
+    background: #9768D1;
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.3s;
+}
+
+.register-btn:hover {
+    background: #e6d5f5;
+    color: #9768D1;
+}
+
+.header-title {
+    text-align: center;
+    padding: 2rem 0;
+    background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+}
+
+.header-title h1 {
+    color: #c122c1;
+    margin: 0;
+    font-size: 2.2rem;
+}
+
+/* Success Notification Popup */
+.success-notification {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    animation: slideDown 0.5s ease-out;
+}
+
+.success-notification i {
+    font-size: 1.2rem;
+}
+
+.success-notification .message {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.success-notification .view-btn {
+    background: white;
+    color: #4CAF50;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-left: 10px;
+}
+
+.success-notification .view-btn:hover {
+    background: #e8f5e9;
+    transform: translateY(-1px);
+}
+
+@keyframes slideDown {
+    from {
+        transform: translate(-50%, -100%);
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, 0);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 1200px) {
+    .sponsorship-card img {
+        width: 120px !important;
+        height: 90px !important;
+    }
+}
+
+@media (max-width: 900px) {
+    .sponsorship-card img {
+        width: 100px !important;
+        height: 70px !important;
+    }
+}
+
+@media (max-width: 700px) {
+    #modalSponsorForm {
+        padding: 1.2rem 0.5rem;
+    }
+    #modalSponsorForm .form-group {
+        width: 100%;
+        max-width: 100%;
+    }
+}

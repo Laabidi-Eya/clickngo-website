@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ajouter un Produit</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="sidebar">
+    <div>
+      <img src="logo.png" alt="Logo" class="logo">
+      <h1>Click'N'go</h1>
+      <div class="menu-item" data-section="overview">🏠 Tableau de Bord</div>
+      <div class="menu-item active" data-section="products">📦 Produits</div>
+      <div class="menu-item" data-section="orders">📋 Commandes</div>
+      <div class="menu-item" data-section="promos">🎁 Promotions</div>
+      <div class="menu-item" data-section="reviews">⭐ Avis</div>
+      <div class="menu-item" data-section="settings">⚙️ Réglages</div>
+    </div>
+    <div class="menu-item">🚪 Déconnexion</div>
+  </div>
+
+  <div class="dashboard">
+    <div class="dashboard-section active" id="products">
+      <div class="header">
+        <h2>Gestion des Produits 📦 - Ajouter un Produit</h2>
+        <div class="profile-container">
+          <div class="profile">
+            <img src="user.webp" alt="Profile Picture">
+          </div>
+        </div>
+      </div>
+
+      <div class="add-product-nav">
+        <button class="add-product-btn" onclick="openProductModal()">➕ Ajouter</button>
+        <a href="edit_product.html" class="btn">Modifier</a>
+        <a href="delete_product.html" class="btn">Supprimer</a>
+        <a href="index.html#products" class="btn">Retour</a>
+      </div>
+
+      <div class="product-cards">
+        <div class="loading">Chargement des produits...</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Product Modal -->
+<div class="modal" id="productModal">
+  <div class="modal-content">
+    <h3 id="modalTitle">Ajouter un Produit</h3>
+    <form id="productForm" action="../../Controller/produitcontroller.php" method="POST" enctype="multipart/form-data" novalidate>
+      <label for="productName">Nom</label>
+      <input type="text" id="productName" name="name" required>
+      <div class="error-message" id="nameError"></div>
+      
+      <label for="productPrice">Prix (TND)</label>
+      <input type="number" id="productPrice" name="price" min="0" step="0.01" required>
+      <div class="error-message" id="priceError"></div>
+      
+      <label for="productStock">Stock</label>
+      <input type="number" id="productStock" name="stock" min="0" required>
+      <div class="error-message" id="stockError"></div>
+      
+      <label for="productCategory">Catégorie</label>
+      <select id="productCategory" name="category" required>
+        <option value="">Choisissez une catégorie</option>
+        <option value="Équipements Sportifs">Équipements Sportifs</option>
+        <option value="Vêtements et Accessoires">Vêtements et Accessoires</option>
+        <option value="Gadgets & Technologies">Gadgets & Technologies</option>
+        <option value="Articles de Bien-être & Récupération">Articles de Bien-être & Récupération</option>
+        <option value="Nutrition & Hydratation">Nutrition & Hydratation</option>
+        <option value="Accessoires de Voyage & Mobilité">Accessoires de Voyage & Mobilité</option>
+        <option value="Supports et accessoires d'atelier">Supports et accessoires d'atelier</option>
+        <option value="Univers du cerveau">Univers du cerveau</option>
+      </select>
+      <div class="error-message" id="categoryError"></div>
+      
+      <label for="productPurchase">Disponible à l'achat</label>
+      <select id="productPurchase" name="purchase_available" required>
+        <option value="yes">Oui</option>
+        <option value="no">Non</option>
+      </select>
+      
+      <label for="productRental">Disponible à la location</label>
+      <select id="productRental" name="rental_available" required>
+        <option value="yes">Oui</option>
+        <option value="no">Non</option>
+      </select>
+      
+      <label for="productPhoto">Photo</label>
+      <input type="file" id="productPhoto" name="photo" accept="image/*">
+      
+      <div class="form-buttons">
+        <button type="button" class="close-btn" onclick="closeModal()">Annuler</button>
+        <button type="submit" class="save-btn">Enregistrer</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<style>
+  .error-message {
+    color: red;
+    font-size: 0.8em;
+    margin-top: 5px;
+    min-height: 20px;
+  }
+  
+  input:invalid, select:invalid {
+    border-color: #ff4444;
+  }
+  
+  input:valid, select:valid {
+    border-color: #00C851;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Expression régulière : uniquement lettres et espaces (y compris les accents)
+    const nameRegex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s'-]+$/;
+    
+    // Éléments du formulaire
+    const form = document.getElementById('productForm');
+    const nameInput = document.getElementById('productName');
+    const priceInput = document.getElementById('productPrice');
+    const stockInput = document.getElementById('productStock');
+    const categorySelect = document.getElementById('productCategory');
+    
+    // Écouteurs d'événements pour la validation en temps réel
+    nameInput.addEventListener('input', validateName);
+    priceInput.addEventListener('input', validatePrice);
+    stockInput.addEventListener('input', validateStock);
+    categorySelect.addEventListener('change', validateCategory);
+    
+    // Validation du nom
+    function validateName() {
+      const errorElement = document.getElementById('nameError');
+      const value = nameInput.value.trim();
+      
+      if (value === "") {
+        errorElement.textContent = "Le nom du produit est requis.";
+        return false;
+      } else if (!nameRegex.test(value)) {
+        errorElement.textContent = "Le nom ne doit contenir que des lettres et des espaces.";
+        return false;
+      } else {
+        errorElement.textContent = "";
+        return true;
+      }
+    }
+    
+    // Validation du prix
+    function validatePrice() {
+      const errorElement = document.getElementById('priceError');
+      const value = priceInput.value.trim();
+      
+      if (value === "") {
+        errorElement.textContent = "Le prix est requis.";
+        return false;
+      } else if (isNaN(value) || parseFloat(value) < 0) {
+        errorElement.textContent = "Le prix doit être un nombre positif.";
+        return false;
+      } else {
+        errorElement.textContent = "";
+        return true;
+      }
+    }
+    
+    // Validation du stock
+    function validateStock() {
+      const errorElement = document.getElementById('stockError');
+      const value = stockInput.value.trim();
+      
+      if (value === "") {
+        errorElement.textContent = "Le stock est requis.";
+        return false;
+      } else if (isNaN(value) || !Number.isInteger(Number(value)) || parseInt(value) < 0) {
+        errorElement.textContent = "Le stock doit être un entier positif.";
+        return false;
+      } else {
+        errorElement.textContent = "";
+        return true;
+      }
+    }
+    
+    // Validation de la catégorie
+    function validateCategory() {
+      const errorElement = document.getElementById('categoryError');
+      const value = categorySelect.value;
+      
+      if (value === "") {
+        errorElement.textContent = "La catégorie est requise.";
+        return false;
+      } else {
+        errorElement.textContent = "";
+        return true;
+      }
+    }
+    
+    // Validation du formulaire avant soumission
+    form.addEventListener('submit', function(event) {
+      const isNameValid = validateName();
+      const isPriceValid = validatePrice();
+      const isStockValid = validateStock();
+      const isCategoryValid = validateCategory();
+      
+      if (!isNameValid || !isPriceValid || !isStockValid || !isCategoryValid) {
+        event.preventDefault();
+        // Faire défiler jusqu'au premier champ invalide
+        if (!isNameValid) nameInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        else if (!isPriceValid) priceInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        else if (!isStockValid) stockInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        else if (!isCategoryValid) categorySelect.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  });
+</script>
+</body>
+</html>

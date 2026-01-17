@@ -1,0 +1,55 @@
+const btnShowSponsorships = document.getElementById('btnShowSponsorships');
+            const btnShowTracking = document.getElementById('btnShowTracking');
+            const btnShowPayment = document.getElementById('btnShowPayment');
+            const sponsorshipsSection = document.getElementById('sponsorships-section');
+            const trackingSection = document.getElementById('tracking-section');
+            const paymentSection = document.getElementById('payment-section');
+
+            btnShowSponsorships.addEventListener('click', () => {
+                sponsorshipsSection.style.display = 'block';
+                trackingSection.style.display = 'none';
+                paymentSection.style.display = 'none';
+            });
+
+            btnShowTracking.addEventListener('click', () => {
+                if (!isLoggedIn && btnShowTracking.dataset.redirect) {
+                    window.location.href = loginUrl;
+                    return;
+                }
+                sponsorshipsSection.style.display = 'none';
+                trackingSection.style.display = 'block';
+                paymentSection.style.display = 'none';
+            });
+
+            btnShowPayment.addEventListener('click', () => {
+                if (!isLoggedIn && btnShowPayment.dataset.redirect) {
+                    window.location.href = loginUrl;
+                    return;
+                }
+                sponsorshipsSection.style.display = 'none';
+                trackingSection.style.display = 'none';
+                paymentSection.style.display = 'block';
+            });
+
+            // Redirect for sponsor request buttons if not logged in
+            const requestButtons = document.querySelectorAll('.request-sponsor-btn');
+            requestButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    if (!isLoggedIn && button.dataset.redirect) {
+                        window.location.href = loginUrl;
+                        return;
+                    }
+                    const card = button.closest('.sponsorship-card');
+                    if (!card) {
+                        console.error('No sponsorship card found for button');
+                        return;
+                    }
+                    // Existing modal logic
+                    populateOfferDetails(card);
+                    clearForm();
+                    fillFormWithOffer(card.getAttribute('data-id-offre'));
+                    showOfferDetails();
+                    modal.classList.add('show');
+                    modal.setAttribute('aria-hidden', 'false');
+                });
+            });

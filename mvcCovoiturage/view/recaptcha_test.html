@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Captcha</title>
+    <!-- Script Google reCAPTCHA - Plus fiable pour les tests -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .container {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        input[type="text"], input[type="email"] {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .g-recaptcha {
+            margin: 15px 0;
+            display: flex;
+            justify-content: center;
+        }
+        #message {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 4px;
+            display: none;
+        }
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        #captchaToken {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 12px;
+            overflow-wrap: break-word;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Test Captcha</h1>
+        <form id="captchaForm">
+            <input type="text" id="name" placeholder="Votre nom" required>
+            <input type="email" id="email" placeholder="Votre email" required>
+            
+            <!-- Clé de site reCAPTCHA pour les tests -->
+            <div class="g-recaptcha" data-sitekey="4d9bd7f7d24503b8fc94aa983a33588a"></div>
+            
+            <button type="submit">Soumettre</button>
+        </form>
+        <div id="message"></div>
+        <div id="captchaToken"></div>
+    </div>
+
+    <script>
+        document.getElementById('captchaForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const recaptchaResponse = grecaptcha.getResponse();
+            
+            // Vérifier si le captcha a été complété
+            if (!recaptchaResponse) {
+                document.getElementById('message').className = 'error';
+                document.getElementById('message').innerHTML = 'Veuillez compléter le captcha';
+                document.getElementById('message').style.display = 'block';
+                return;
+            }
+            
+            // Afficher le token du captcha (pour le test uniquement)
+            document.getElementById('captchaToken').innerHTML = '<strong>Token captcha obtenu (à envoyer au serveur):</strong><br>' + recaptchaResponse;
+            document.getElementById('captchaToken').style.display = 'block';
+            
+            // Simuler une vérification réussie (pour le test côté client)
+            document.getElementById('message').className = 'success';
+            document.getElementById('message').innerHTML = `<strong>Test réussi!</strong><br>Dans un environnement réel, ce token serait vérifié côté serveur avec votre clé secrète.<br><br>Données du formulaire:<br>- Nom: ${name}<br>- Email: ${email}`;
+            document.getElementById('message').style.display = 'block';
+            
+            // Pour réinitialiser le captcha après soumission
+            setTimeout(function() {
+                grecaptcha.reset();
+            }, 3000);
+        });
+    </script>
+</body>
+</html>

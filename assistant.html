@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Assistant Vocal Tunisien amélioré</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 50px;
+      background: linear-gradient(to right, #ff87ab, #a78bfa);
+      color: white;
+    }
+    button {
+      font-size: 24px;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 12px;
+      background-color: #ffffff;
+      color: #a78bfa;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #f0f0f0;
+    }
+    #transcript {
+      margin-top: 30px;
+      font-size: 20px;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <h1>🗣️ Assistant Vocal Tunisien amélioré</h1>
+  <p>Clique et parle en tunisien ou en français :</p>
+  <button onclick="startListening()">🎤 Parle !</button>
+  <p id="transcript">...</p>
+
+  <script>
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SpeechRecognition) {
+      alert("Web Speech API non supportée par ton navigateur.");
+    }
+
+    const recognition = new SpeechRecognition();
+    recognition.lang = 'fr-FR';
+
+    recognition.onresult = (event) => {
+      const text = event.results[0][0].transcript.toLowerCase();
+      document.getElementById('transcript').innerText = 'Tu as dit : ' + text;
+      respond(text);
+    };
+
+    recognition.onerror = (event) => {
+      document.getElementById('transcript').innerText = 'Erreur : ' + event.error;
+    };
+
+    function startListening() {
+      document.getElementById('transcript').innerText = "🎙️ Écoute...";
+      recognition.start();
+    }
+
+function respond(text) {
+  text = text.toLowerCase();
+  // dictionnaire tunisien simple
+  text = text.replace(/barsha/g, "beaucoup");
+  text = text.replace(/nخرج/g, "sortir");
+  text = text.replace(/باش/g, "vais");
+  text = text.replace(/بحر/g, "plage");
+
+  const weekendPattern = /(weekend|sortir|beaucoup|vais|n'aime pas travailler)/i;
+  const plagePattern = /(plage|mer|rafraf)/i;
+  const randoPattern = /(rando|randonnée|zariba|zriba|trek|marche)/i;
+
+  let response = "Désolé, je n'ai pas compris. Peux-tu répéter ?";
+
+  if (weekendPattern.test(text)) {
+    response = "Yalla, pour le weekend tu peux faire une rando à Zriba ou aller à la plage de Rafraf.";
+  } else if (plagePattern.test(text)) {
+    response = "La plage de Rafraf est top ce weekend, ne la manque pas !";
+  } else if (randoPattern.test(text)) {
+    response = "La randonnée à Zriba est magnifique, bonne idée !";
+  }
+
+  const synth = window.speechSynthesis;
+  const utterance = new SpeechSynthesisUtterance(response);
+  utterance.lang = 'fr-FR';
+  synth.speak(utterance);
+}
+
+  </script>
+</body>
+</html>

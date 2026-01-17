@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+    <button id="checkout-button">Checkout</button>
+
+    <script>
+        // Initialize Stripe with your public key
+        const stripe = Stripe('pk_test_51RJL0sQabomDz0Baxnej9s98KKxxRyqRzsJUCLkHaveIB3FGVPF2rhdi8jLPCydMO4lF95QJotwMvL0QjOXjAud200GjafxVKG');
+
+        // Handle checkout button click
+        document.getElementById('checkout-button').addEventListener('click', async () => {
+            try {
+                // Fetch checkout session from backend
+                const response = await fetch('stripe_checkout.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                });
+
+                const session = await response.json();
+
+                if (session.error) {
+                    console.error(session.error);
+                    return;
+                }
+
+                // Redirect to Stripe checkout
+                const result = await stripe.redirectToCheckout({
+                    sessionId: session.id
+                });
+
+                if (result.error) {
+                    console.error(result.error.message);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        });
+    </script>
+</body>
+</html>

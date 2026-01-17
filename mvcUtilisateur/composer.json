@@ -1,0 +1,18 @@
+{
+    "name": "myapp/social-login",
+    "description": "Social login app",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Mega-PC",
+            "email": "you@example.com"
+        }
+    ],
+    "require": {
+        "league/oauth2-client": "^2.8",
+        "league/oauth2-facebook": "^2.2",
+        "league/oauth2-google": "^4.0",
+        "league/oauth2-github": "^3.1",
+        "google/apiclient": "2.15"
+    }
+}

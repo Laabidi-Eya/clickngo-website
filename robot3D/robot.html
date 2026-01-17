@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Robot interactif avec humeur</title>
+</head>
+
+<body>
+
+
+
+        <ul class="nav-links">
+        <li><a href="#">Accueil</a></li>
+        <li><a href="/Projet Web/mvcact/view/front office/activite.php">Activités</a></li>
+        <li><a href="/Projet Web/mvcEvent/View/FrontOffice/evenemant.php">Événements</a></li>
+        <li><a href="/Projet Web/mvcProduit/view/front office/produit.php">Produits</a></li>
+        <li><a href="/Projet Web/mvcCovoiturage/view/index.php">Transports</a></li>
+        <li><a href="/Projet%20Web/mvcSponsor/crud/view/front/index.php">Sponsors</a></li>
+      </ul>
+
+      <script>
+
+
+  function hideMessage() {
+    const botMessage = document.getElementById("bot-message");
+    botMessage.style.display = "none";
+  }
+
+  const menuLinks = document.querySelectorAll(".nav-links a");
+
+  menuLinks.forEach(link => {
+    link.addEventListener("mouseenter", () => {
+      const section = link.textContent.trim().toLowerCase();
+      let message = "";
+
+      switch (section) {
+        case "accueil":
+          message = "Bienvenue chez ClickNgo 🏠";
+          break;
+        case "activités":
+          message = "Prêt pour l’aventure ? Découvre nos activités ! 🧗";
+          break;
+        case "événements":
+          message = "Ne rate pas nos événements exclusifs 🎉";
+          break;
+        case "produits":
+          message = "Regarde ce qu'on a en boutique ! 🛍️";
+          break;
+        case "transports":
+          message = "Besoin d’un covoiturage ? On a ce qu’il faut 🚗";
+          break;
+        case "sponsors":
+          message = "Un grand merci à nos sponsors 🤝";
+          break;
+        default:
+          message = `Tu veux explorer "${section}" ? 🤖`;
+      }
+
+      showMessage(message);
+    });
+
+    link.addEventListener("mouseleave", hideMessage);
+
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const url = link.getAttribute("href");
+      showMessage("Super choix ! On y va... 🚀");
+
+      setTimeout(() => {
+        window.location.href = url;
+      }, 1000);
+    });
+  });
+</script>
+
+  
+  <!-- Face-api.js pour la détection des émotions -->
+  <script src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
+
+  <!-- Spline pour le robot 3D -->
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.2/build/spline-viewer.js"></script>
+
+  <!-- STYLES -->
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: #f5f5f5;
+      font-family: Arial, sans-serif;
+    }
+
+    spline-viewer {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      width: 300px;
+      height: 300px;
+      pointer-events: none;
+      z-index: 1000;
+      background: transparent !important;
+    }
+
+    #search1, #exploreBtn {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 16px;
+      z-index: 2000;
+      border-radius: 25px;
+    }
+
+    #search1 {
+      top: 40px;
+      padding: 12px 20px;
+      border: 1px solid #ccc;
+      width: 300px;
+    }
+
+    #exploreBtn {
+      top: 100px;
+      padding: 12px 24px;
+      background: #ff66cc;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .bubble {
+      position: fixed;
+      bottom: 160px;
+      left: 150px;
+      background: #fff;
+      padding: 14px 20px;
+      border-radius: 22px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      font-size: 16px;
+      max-width: 260px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 1100;
+      color: #333;
+      font-weight: 500;
+    }
+
+    .bubble.show {
+      opacity: 1;
+      animation: bubblePop 0.3s ease;
+    }
+
+    @keyframes bubblePop {
+      0% { transform: scale(0.8); opacity: 0; }
+      60% { transform: scale(1.05); opacity: 1; }
+      100% { transform: scale(1); }
+    }
+
+    .bubble::after {
+      content: '';
+      position: absolute;
+      left: 30px;
+      bottom: -5px;
+      border: 15px solid transparent;
+      border-top-color: #fff;
+      border-bottom: 0;
+      rotate: 160deg;
+    }
+
+    #webcam {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 160px;
+      height: 120px;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      z-index: 1500;
+      display: none;
+    }
+
+    #scanMoodBtn, #toggleVoice {
+      position: fixed;
+      z-index: 1500;
+      font-size: 14px;
+      font-weight: bold;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    #scanMoodBtn {
+      bottom: 40px;
+      left: 160px;
+      padding: 10px 18px;
+      background: linear-gradient(135deg, #d36fff, #ff66cc);
+      color: white;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    #scanMoodBtn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+    }
+
+    #toggleVoice {
+      bottom: 40px;
+      left: 30px;
+      background: white;
+      border: 2px solid #ff66cc;
+      color: #ff66cc;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+    }
+
+    #toggleVoice.active {
+      background: #ff66cc;
+      color: white;
+    }
+
+    #toggleVoice:hover {
+      transform: scale(1.1);
+    }
+  </style>
+
+  <!-- Interface utilisateur -->
+  <input type="text" id="search1" placeholder="Recherche...">
+  <button id="exploreBtn">Voir les activités</button>
+  <button id="scanMoodBtn">Scanner mon humeur</button>
+  <video id="webcam" autoplay muted></video>
+
+  <!-- Robot 3D -->
+  <spline-viewer id="robot" url="https://prod.spline.design/IWzKfSYNM8KCQbZm/scene.splinecode" alpha="true"></spline-viewer>
+
+  <!-- Message bulle -->
+  <div class="bubble" id="robotMessage">Tu cherches quoi ? 😊</div>
+
+  <!-- Bouton voix -->
+  <button id="toggleVoice" title="Activer/désactiver la voix">🔊</button>
+
+  <!-- SCRIPT JS -->
+  <script>
+    let voiceEnabled = false;
+    const toggleVoiceBtn = document.getElementById('toggleVoice');
+
+    toggleVoiceBtn.addEventListener('click', () => {
+      voiceEnabled = !voiceEnabled;
+      toggleVoiceBtn.classList.toggle('active');
+    });
+
+    function speak(text) {
+      if (!voiceEnabled || !window.speechSynthesis) return;
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = 'fr-FR';
+      utterance.rate = 1;
+      utterance.pitch = 1;
+      window.speechSynthesis.cancel();
+      window.speechSynthesis.speak(utterance);
+    }
+
+    const viewer = document.getElementById('robot');
+    const message = document.getElementById('robotMessage');
+    const searchInput = document.getElementById('search1');
+    const exploreBtn = document.getElementById('exploreBtn');
+    const webcam = document.getElementById('webcam');
+    const scanMoodBtn = document.getElementById('scanMoodBtn');
+
+    let currentMood = null;
+    let detectionInterval = null;
+    let mediaStream = null;
+
+    // Bouton arrêt du scan
+    const stopBtn = document.createElement('button');
+    stopBtn.textContent = "Arrêter le scan";
+    Object.assign(stopBtn.style, {
+      position: "fixed",
+      bottom: "40px",
+      left: "160px",
+      padding: "10px 18px",
+      background: "linear-gradient(135deg, #ff4d6d, #ff66cc)",
+      color: "white",
+      fontWeight: "bold",
+      border: "none",
+      borderRadius: "20px",
+      boxShadow: "0 4px 12px rgba(0,0,0,0.2)",
+      cursor: "pointer",
+      zIndex: "1500",
+      fontSize: "14px",
+      transition: "transform 0.2s, box-shadow 0.2s",
+      display: "none"
+    });
+
+    stopBtn.addEventListener("mouseenter", () => {
+      stopBtn.style.transform = "scale(1.05)";
+      stopBtn.style.boxShadow = "0 6px 16px rgba(0,0,0,0.3)";
+    });
+    stopBtn.addEventListener("mouseleave", () => {
+      stopBtn.style.transform = "scale(1)";
+      stopBtn.style.boxShadow = "0 4px 12px rgba(0,0,0,0.2)";
+    });
+
+    document.body.appendChild(stopBtn);
+
+    viewer.addEventListener('load', () => {
+      let head = null;
+      try { head = viewer.scene.getObjectByName('Head'); } catch {}
+      window.addEventListener('mousemove', (e) => {
+        if (!head) return;
+        const x = (e.clientX / window.innerWidth - 0.5) * 2;
+        const y = (e.clientY / window.innerHeight - 0.5) * -2;
+        head.rotation.y = x * 0.5;
+        head.rotation.x = y * 0.5;
+      });
+    });
+
+function showMessage(txt) {
+  message.textContent = txt;
+  message.classList.add("show");
+  speak(txt);
+
+  // Supprimer le message après 3 secondes (3000 millisecondes)
+  setTimeout(() => {
+    message.classList.remove("show");
+  }, 3000);
+}
+
+
+    function hideMessage() {
+      message.classList.remove("show");
+    }
+
+    searchInput.addEventListener('focus', () => showMessage("Dis-moi ce que tu veux trouver 😉"));
+    searchInput.addEventListener('input', () => {
+      const val = searchInput.value.trim();
+      showMessage(val ? `Hmm… "${val}" ? 🔍` : "Tape quelque chose 👀");
+    });
+    searchInput.addEventListener('blur', hideMessage);
+
+    exploreBtn.addEventListener('mouseenter', () => showMessage(`Tu veux "${exploreBtn.textContent}" ? 😎`));
+    exploreBtn.addEventListener('mouseleave', hideMessage);
+    exploreBtn.addEventListener('click', () => {
+      showMessage("D'accord, je t'y emmène ! 🛸");
+    });
+
+    scanMoodBtn.addEventListener('click', async () => {
+      try {
+        scanMoodBtn.style.display = 'none';
+        stopBtn.style.display = 'block';
+        await initFaceDetection();
+      } catch {
+        showMessage("Je ne peux pas accéder à ta caméra 😢");
+        scanMoodBtn.style.display = 'block';
+        stopBtn.style.display = 'none';
+      }
+    });
+
+    stopBtn.addEventListener('click', () => {
+      if (mediaStream) mediaStream.getTracks().forEach(track => track.stop());
+      clearInterval(detectionInterval);
+      webcam.style.display = 'none';
+      scanMoodBtn.style.display = 'block';
+      stopBtn.style.display = 'none';
+      currentMood = null;
+      showMessage("Scan arrêté 👋");
+      setTimeout(hideMessage, 3000);
+    });
+
+    async function initFaceDetection() {
+      try {
+        mediaStream = await navigator.mediaDevices.getUserMedia({ video: { width: 640, height: 480 } });
+        webcam.srcObject = mediaStream;
+        webcam.style.display = 'block';
+
+        await faceapi.nets.tinyFaceDetector.loadFromUri('https://justadudewhohacks.github.io/face-api.js/models');
+        await faceapi.nets.faceExpressionNet.loadFromUri('https://justadudewhohacks.github.io/face-api.js/models');
+
+        detectExpression();
+      } catch (error) {
+        showMessage("Permission refusée 😢 Active ta caméra !");
+        throw error;
+      }
+    }
+
+    function detectExpression() {
+      detectionInterval = setInterval(async () => {
+        if (!webcam.srcObject) return;
+        const detection = await faceapi.detectSingleFace(webcam, new faceapi.TinyFaceDetectorOptions()).withFaceExpressions();
+        if (!detection) {
+          showMessage("On dirait que tu es metghachech 😶 Retire le cache pour que je t'aide !");
+          return;
+        }
+
+        const sorted = Object.entries(detection.expressions).sort((a, b) => b[1] - a[1]);
+        const expr = sorted[0][0];
+        if (expr !== currentMood) {
+          currentMood = expr;
+          reactToEmotion(expr);
+        }
+      }, 2500);
+    }
+
+    function reactToEmotion(expr) {
+      const activities = {
+        happy: "🎉 Viens essayer notre atelier de danse ou un concert live !",
+        sad: "🧘‍♂️ Essaie une session de méditation ou une balade en forêt",
+        angry: "🥊 Viens faire un peu de boxe ou du sport pour te défouler",
+        fearful: "🛶 Et si on faisait un tour en kayak paisible ?",
+        surprised: "🎭 Tu vas adorer notre pièce de théâtre comique !",
+        disgusted: "🍫 Viens goûter nos desserts maison pour te changer les idées 😋",
+        neutral: "🎨 Atelier créatif ou expo photo ? Tu choisis !"
+      };
+
+      const reaction = {
+        happy: "Tu souris ! On va faire la fête ? 🎉",
+        sad: "Hmm... tu as l'air triste. Je te fais un câlin virtuel 🤗",
+        neutral: "Tu as l'air concentré. Besoin d'aide ? 🤔",
+        surprised: "Oh, surpris ? Viens découvrir une surprise ! 🎁",
+        angry: "Prends une grande respiration... tout va bien se passer 🌿",
+        disgusted: "Quelque chose te dégoûte ? Changeons de sujet ! 🌈",
+        fearful: "N'aie pas peur, je suis là pour toi 🛡️"
+      };
+
+      showMessage(reaction[expr] + "\n\n" + activities[expr]);
+      setTimeout(hideMessage, 7000);
+    }
+  </script>
+
+</body>
+</html>

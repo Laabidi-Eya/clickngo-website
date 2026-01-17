@@ -1,0 +1,442 @@
+[
+  {
+    "question": "Comment fonctionne le covoiturage ?",
+    "reponse": "Le covoiturage permet de partager un trajet entre conducteurs et passagers pour réduire les coûts et l'impact écologique."
+  },
+  {
+    "question": "Comment créer un compte ?",
+    "reponse": "Cliquez sur 'Inscription', remplissez le formulaire et validez votre email."
+  },
+  {
+    "question": "Comment réserver un trajet ?",
+    "reponse": "Recherchez un trajet, sélectionnez une offre et cliquez sur 'Réserver'."
+  },
+  {
+    "question": "Puis-je annuler une réservation ?",
+    "reponse": "Oui, jusqu'à 24h avant le départ sans frais."
+  },
+  {
+    "question": "Quels sont les modes de paiement ?",
+    "reponse": "Carte bancaire, PayPal ou espèces (accord avec le conducteur)."
+  },
+  {
+    "question": "Comment contacter un conducteur ?",
+    "reponse": "Via la messagerie interne après réservation."
+  },
+  {
+    "question": "Comment devenir conducteur ?",
+    "reponse": "Remplissez votre profil conducteur et ajoutez un véhicule."
+  },
+  {
+    "question": "Comment signaler un problème ?",
+    "reponse": "Utilisez le bouton 'Signaler' dans la réservation ou contactez le support."
+  },
+  {
+    "question": "Comment modifier mon profil ?",
+    "reponse": "Allez dans 'Mon compte' > 'Paramètres du profil'."
+  },
+  {
+    "question": "Comment supprimer mon compte ?",
+    "reponse": "Contactez le support via 'Aide' > 'Supprimer mon compte'."
+  },
+  {
+    "question": "Quelles sont les règles de sécurité ?",
+    "reponse": "Vérifiez les profils, partagez vos trajets avec des proches, et privilégiez les paiements sécurisés."
+  },
+  {
+    "question": "Comment vérifier un profil ?",
+    "reponse": "Les profils avec badge 'Vérifié' ont fourni une pièce d'identité."
+  },
+  {
+    "question": "Puis-je voyager avec des animaux ?",
+    "reponse": "Demandez au conducteur avant de réserver."
+  },
+  {
+    "question": "Comment laisser un avis ?",
+    "reponse": "Après un trajet, vous pouvez noter et commenter dans 'Mes réservations'."
+  },
+  {
+    "question": "Comment filtrer les trajets ?",
+    "reponse": "Utilisez les filtres (date, prix, bagages) dans la recherche."
+  },
+  {
+    "question": "Que faire en cas de retard ?",
+    "reponse": "Prévenez le conducteur/passager via la messagerie."
+  },
+  {
+    "question": "Comment partager les frais ?",
+    "reponse": "Le prix est fixé par le conducteur et payé via la plateforme ou en espèces."
+  },
+  {
+    "question": "Puis-je réserver pour plusieurs personnes ?",
+    "reponse": "Oui, si le conducteur a assez de places disponibles."
+  },
+  {
+    "question": "Comment trouver un trajet urgent ?",
+    "reponse": "Utilisez le filtre 'Départ imminent' ou postez une annonce."
+  },
+  {
+    "question": "Comment fonctionne l'annulation ?",
+    "reponse": "Annulez via 'Mes réservations'. Les remboursements sont traités sous 5 jours."
+  },
+  {
+    "question": "Qu'est-ce qu'un trajet régulier ?",
+    "reponse": "Un trajet répété (ex: domicile-travail) que vous pouvez réserver à l'avance."
+  },
+  {
+    "question": "Comment ajouter un véhicule ?",
+    "reponse": "Allez dans 'Mon profil' > 'Mes véhicules' > 'Ajouter un véhicule'."
+  },
+  {
+    "question": "Comment changer mon mot de passe ?",
+    "reponse": "'Mon compte' > 'Sécurité' > 'Changer mot de passe'."
+  },
+  {
+    "question": "Où sont mes tickets de réservation ?",
+    "reponse": "Dans 'Mes réservations' ou envoyés par email."
+  },
+  {
+    "question": "Comment contacter le support ?",
+    "reponse": "Via 'Aide' > 'Nous contacter' ou par email à support@covoiturage.fr."
+  },
+  {
+    "question": "Comment marche le système de notes ?",
+    "reponse": "Les utilisateurs notent de 1 à 5 étoiles après chaque trajet."
+  },
+  {
+    "question": "Puis-je payer en espèces ?",
+    "reponse": "Oui, si le conducteur l'accepte. Privilégiez les paiements en ligne pour plus de sécurité."
+  },
+  {
+    "question": "Comment ajouter une photo de profil ?",
+    "reponse": "'Mon compte' > 'Photo de profil' > 'Télécharger'."
+  },
+  {
+    "question": "Qu'est-ce qu'un trajet privé ?",
+    "reponse": "Un trajet réservé à des amis ou des groupes spécifiques."
+  },
+  {
+    "question": "Comment bloquer un utilisateur ?",
+    "reponse": "Allez sur son profil > 'Bloquer cet utilisateur'."
+  },
+  {
+    "question": "Comment marche la messagerie ?",
+    "reponse": "Elle s'active après une réservation pour discuter avec le conducteur/passager."
+  },
+  {
+    "question": "Puis-je modifier ma réservation ?",
+    "reponse": "Non, mais vous pouvez annuler et réserver un nouveau trajet."
+  },
+  {
+    "question": "Comment voir les avis sur un conducteur ?",
+    "reponse": "Sur son profil, section 'Avis'."
+  },
+  {
+    "question": "Qui fixe le prix du trajet ?",
+    "reponse": "Le conducteur, en fonction de la distance et des frais."
+  },
+  {
+    "question": "Comment calculer le prix d'un trajet ?",
+    "reponse": "Le prix dépend de la distance, du nombre de places et des options (bagages, climatisation)."
+  },
+  {
+    "question": "Comment signaler un profil frauduleux ?",
+    "reponse": "Cliquez sur 'Signaler' sur le profil ou contactez le support."
+  },
+  {
+    "question": "Comment désactiver les notifications ?",
+    "reponse": "'Paramètres' > 'Notifications' > Désactivez les alertes."
+  },
+  {
+    "question": "Comment marche la recherche de trajets ?",
+    "reponse": "Entrez lieu de départ, destination et date pour voir les trajets disponibles."
+  },
+  {
+    "question": "Puis-je réserver sans compte ?",
+    "reponse": "Non, vous devez créer un compte pour réserver."
+  },
+  {
+    "question": "Comment récupérer mon mot de passe oublié ?",
+    "reponse": "Cliquez sur 'Mot de passe oublié' sur la page de connexion."
+  },
+  {
+    "question": "Quels documents faut-il pour conduire ?",
+    "reponse": "Permis de conduire, assurance et contrôle technique à jour."
+  },
+  {
+    "question": "Comment vérifier mon email ?",
+    "reponse": "Cliquez sur le lien dans l'email envoyé après l'inscription."
+  },
+  {
+    "question": "Comment ajouter un arrêt ?",
+    "reponse": "Proposez-le au conducteur via la messagerie après réservation."
+  },
+  {
+    "question": "Comment savoir si un trajet est fiable ?",
+    "reponse": "Vérifiez les avis, le badge 'Vérifié' et le taux de réponse du conducteur."
+  },
+  {
+    "question": "Comment partager mon trajet sur les réseaux ?",
+    "reponse": "Utilisez le bouton 'Partager' dans les détails du trajet."
+  },
+  {
+    "question": "Puis-je mettre en favoris un trajet ?",
+    "reponse": "Oui, cliquez sur l'icône ♡ dans les résultats de recherche."
+  },
+  {
+    "question": "Comment marche le système de confiance ?",
+    "reponse": "Plus vous avez de trajets et de bons avis, plus votre profil est visible."
+  },
+  {
+    "question": "Comment proposer un nouveau prix ?",
+    "reponse": "Envoyez une demande au conducteur via la messagerie."
+  },
+  {
+    "question": "Comment voir mes trajets passés ?",
+    "reponse": "Dans 'Historique' > 'Trajets passés'."
+  },
+  {
+    "question": "Comment activer la géolocalisation ?",
+    "reponse": "Autorisez l'accès à votre position dans les paramètres du navigateur/appareil."
+  },
+  {
+    "question": "Qu'est-ce qu'un trajet instantané ?",
+    "reponse": "Un trajet disponible immédiatement, sans réservation à l'avance."
+  },
+  {
+    "question": "Comment marche le covoiturage professionnel ?",
+    "reponse": "Les entreprises peuvent organiser des trajets pour leurs employés via un compte pro."
+  },
+  {
+    "question": "Comment supprimer une annonce ?",
+    "reponse": "Allez dans 'Mes trajets' > 'Supprimer'."
+  },
+  {
+    "question": "Comment modifier une annonce ?",
+    "reponse": "Allez dans 'Mes trajets' > 'Modifier'."
+  },
+  {
+    "question": "Comment voir les trajets populaires ?",
+    "reponse": "Utilisez le filtre 'Tendances' dans la recherche."
+  },
+  {
+    "question": "Comment éviter les arnaques ?",
+    "reponse": "Ne payez jamais en dehors de la plateforme et vérifiez les avis."
+  },
+  {
+    "question": "Comment marche l'assurance ?",
+    "reponse": "Les conducteurs doivent avoir une assurance couvrant le covoiturage."
+  },
+  {
+    "question": "Comment contacter un passager ?",
+    "reponse": "Via la messagerie après qu'il a réservé."
+  },
+  {
+    "question": "Comment gérer les bagages ?",
+    "reponse": "Précisez le nombre de valises dans votre annonce ou réservation."
+  },
+  {
+    "question": "Comment voir les conducteurs à proximité ?",
+    "reponse": "Activez la géolocalisation et utilisez la carte interactive."
+  },
+  {
+    "question": "Comment fonctionne le parrainage ?",
+    "reponse": "Parrainez des amis pour gagner des crédits voyage."
+  },
+  {
+    "question": "Comment réclamer un remboursement ?",
+    "reponse": "Contactez le support avec le numéro de réservation."
+  },
+  {
+    "question": "Comment ajouter une photo de mon véhicule ?",
+    "reponse": "'Mes véhicules' > 'Ajouter une photo'."
+  },
+  {
+    "question": "Comment marche le système de points ?",
+    "reponse": "Gagnez des points en complétant des trajets, échangeables contre des réductions."
+  },
+  {
+    "question": "Comment désactiver mon compte temporairement ?",
+    "reponse": "'Paramètres' > 'Désactiver mon compte'."
+  },
+  {
+    "question": "Comment voir les trajets en temps réel ?",
+    "reponse": "Activez les notifications ou actualisez la page de recherche."
+  },
+  {
+    "question": "Comment proposer un trajet ?",
+    "reponse": "Cliquez sur 'Proposer un trajet', remplissez les détails et publiez."
+  },
+  {
+    "question": "Comment connaître les frais de service ?",
+    "reponse": "Ils sont indiqués avant le paiement (généralement 10-15% du prix)."
+  },
+  {
+    "question": "Comment signaler un comportement inapproprié ?",
+    "reponse": "Contactez le support avec des preuves (captures, messages)."
+  },
+  {
+    "question": "Comment optimiser mes recherches ?",
+    "reponse": "Utilisez des mots-clés précis (ex: 'Paris Lyon 10 juin')."
+  },
+  {
+    "question": "Comment marche le covoiturage nocturne ?",
+    "reponse": "Filtrez les trajets par heure ou utilisez l'option 'Trajets de nuit'."
+  },
+  {
+    "question": "Comment voir les promotions ?",
+    "reponse": "Abonnez-vous à la newsletter ou vérifiez la section 'Offres'."
+  },
+  {
+    "question": "Comment partager un trajet en groupe ?",
+    "reponse": "Créez un groupe dans 'Mes trajets' et invitez des membres."
+  },
+  {
+    "question": "Comment contacter un ancien passager ?",
+    "reponse": "Via la messagerie si vous avez déjà partagé un trajet."
+  },
+  {
+    "question": "Comment éviter les annonces frauduleuses ?",
+    "reponse": "Méfiez-vous des prix trop bas et des profils sans photo/avis."
+  },
+  {
+    "question": "Comment marche le système d'alerte ?",
+    "reponse": "Recevez des notifications pour les nouveaux trajets correspondant à vos critères."
+  },
+  {
+    "question": "Comment gérer les retards ?",
+    "reponse": "Prévenez l'autre partie et consultez 'Mes réservations' pour les options."
+  },
+  {
+    "question": "Comment voir les trajets économiques ?",
+    "reponse": "Triez les résultats par 'Prix croissant'."
+  },
+  {
+    "question": "Comment partager un trajet sur WhatsApp ?",
+    "reponse": "Utilisez le bouton 'Partager' et sélectionnez WhatsApp."
+  },
+  {
+    "question": "Comment connaître les frais de péage ?",
+    "reponse": "Ils sont inclus dans le prix ou à partager entre passagers."
+  },
+  {
+    "question": "Comment voir les trajets avec animaux acceptés ?",
+    "reponse": "Utilisez le filtre 'Animaux autorisés'."
+  },
+  {
+    "question": "Comment marche le covoiturage interurbain ?",
+    "reponse": "Recherchez des trajets longue distance entre villes."
+  },
+  {
+    "question": "Comment voir les trajets avec climatisation ?",
+    "reponse": "Utilisez le filtre 'Climatisation'."
+  },
+  {
+    "question": "Comment connaître la ponctualité d'un conducteur ?",
+    "reponse": "Vérifiez les avis et son taux de ponctualité sur son profil."
+  },
+  {
+    "question": "Comment proposer un prix différent ?",
+    "reponse": "Envoyez une offre personnalisée via la messagerie."
+  },
+  {
+    "question": "Comment voir les trajets avec siège bébé ?",
+    "reponse": "Utilisez le filtre 'Siège enfant'."
+  },
+  {
+    "question": "Comment connaître la taille du coffre ?",
+    "reponse": "Demandez au conducteur ou vérifiez dans les détails du véhicule."
+  },
+  {
+    "question": "Comment marche le système de fidélité ?",
+    "reponse": "Gagnez des points à chaque trajet, échangeables contre des avantages."
+  },
+  {
+    "question": "Comment voir les trajets avec arrêts multiples ?",
+    "reponse": "Activez l'option 'Arrêts possibles' dans les filtres."
+  },
+  {
+    "question": "Comment connaître les restrictions de bagages ?",
+    "reponse": "Vérifiez les règles dans l'annonce ou demandez au conducteur."
+  },
+  {
+    "question": "Comment marche le paiement en espèces ?",
+    "reponse": "Payez directement au conducteur, mais privilégiez les paiements en ligne pour la sécurité."
+  },
+  {
+    "question": "Comment voir les trajets avec wifi ?",
+    "reponse": "Utilisez le filtre 'Wifi disponible'."
+  },
+  {
+    "question": "Comment connaître les pauses prévues ?",
+    "reponse": "Demandez au conducteur avant de réserver."
+  },
+  {
+    "question": "Comment marche le système de groupes ?",
+    "reponse": "Créez ou rejoignez un groupe pour partager des trajets réguliers."
+  },
+  {
+    "question": "Comment voir les trajets avec options écologiques ?",
+    "reponse": "Filtrez par 'Véhicule électrique' ou 'Eco-conduite'."
+  },
+  {
+    "question": "Comment connaître les frais de annulation ?",
+    "reponse": "Consultez les 'Conditions d'annulation' dans l'annonce."
+  },
+  {
+    "question": "Comment marche le covoiturage pour événements ?",
+    "reponse": "Recherchez des trajets liés à un événement (concert, festival)."
+  },
+  {
+    "question": "Comment voir les trajets avec options silencieuses ?",
+    "reponse": "Demandez au conducteur ou utilisez l'option 'Trajet calme'."
+  },
+  {
+    "question": "Comment connaître les règles de conduite ?",
+    "reponse": "Respectez les consignes du conducteur (pas de fumée, musique modérée)."
+  },
+  {
+    "question": "Comment marche le système de recommandation ?",
+    "reponse": "Recevez des suggestions basées sur vos trajets précédents."
+  },
+  {
+    "question": "Comment voir les trajets avec options premium ?",
+    "reponse": "Filtrez par 'Confort supérieur' ou 'Espace VIP'."
+  },
+  {
+    "question": "Comment connaître les trajets les plus rapides ?",
+    "reponse": "Triez par 'Durée' ou utilisez l'option 'Trajet direct'."
+  },
+  {
+    "question": "Comment marche le covoiturage pour étudiants ?",
+    "reponse": "Recherchez des trajets vers les campus ou utilisez un compte étudiant vérifié."
+  },
+  {
+    "question": "Comment voir les trajets avec options repas ?",
+    "reponse": "Demandez au conducteur ou utilisez l'option 'Repas inclus'."
+  },
+  {
+    "question": "Comment connaître les trajets les plus économiques ?",
+    "reponse": "Comparez les prix et utilisez les filtres 'Économique'."
+  },
+  {
+    "question": "Comment marche le système de trajets partagés ?",
+    "reponse": "Plusieurs passagers partagent le même trajet pour réduire les coûts."
+  },
+  {
+    "question": "Comment voir les trajets avec options luxe ?",
+    "reponse": "Filtrez par 'Véhicule haut de gamme' ou 'Service premium'."
+  },
+  {
+    "question": "Comment connaître les trajets les plus sûrs ?",
+    "reponse": "Privilégiez les conducteurs vérifiés avec excellents avis."
+  },
+  {
+    "question": "Comment marche le covoiturage pour familles ?",
+    "reponse": "Recherchez des trajets acceptant les enfants et sièges bébé."
+  },
+  {
+    "question": "Comment voir les trajets avec options affaires ?",
+    "reponse": "Filtrez par 'Espace travail' ou 'Prise électrique'."
+  }
+]

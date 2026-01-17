@@ -1,0 +1,122 @@
+.category-product .btn {
+    padding: 15px 45px;
+    font-size: 20px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    margin: 8px;
+    position: relative;
+    overflow: hidden;
+    min-width: 180px;
+}
+
+.category-product .btn-buy {
+    background: linear-gradient(45deg, #663399, #8A2BE2);
+    color: white;
+    box-shadow: 0 4px 15px rgba(102, 51, 153, 0.2);
+}
+
+.category-product .btn-rent {
+    background: rgba(102, 51, 153, 0.1);
+    color: #663399;
+    box-shadow: 0 4px 15px rgba(102, 51, 153, 0.1);
+}
+
+.category-product .btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.category-product .btn:hover::before {
+    left: 100%;
+}
+
+.category-product .btn:hover {
+    transform: translateY(-5px) scale(1.05);
+}
+
+.category-product .btn-buy:hover {
+    background: linear-gradient(45deg, #7a3ab8, #9b4deb);
+    box-shadow: 0 6px 20px rgba(102, 51, 153, 0.3);
+}
+
+.category-product .btn-rent:hover {
+    background: rgba(102, 51, 153, 0.2);
+    box-shadow: 0 6px 20px rgba(102, 51, 153, 0.2);
+}
+
+.category-product .btn:active {
+    transform: translateY(2px);
+}
+
+@keyframes buttonPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.category-product .btn-buy {
+    animation: buttonPulse 2s infinite;
+}
+
+.category-product .btn-buy:hover {
+    animation: none;
+}
+
+.category-product .buttons-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+    padding: 10px 0;
+}
+
+.product-item .register-btn {
+    display: inline-block;
+    margin: 0 5px 15px;
+    text-align: center;
+    background: linear-gradient(to right, #be3cf0, #dc46d7 17%, #ff50aa 68%, #ff6666);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    font-size: 16px;
+    min-width: 140px;
+}
+
+.product-item .register-btn:hover {
+    background: linear-gradient(to left, #be3cf0, #dc46d7 17%, #ff50aa 68%, #ff6666);
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+} 
+.payment-methods {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-top: 15px;
+    padding: 10px 0;
+}
+
+.payment-icon {
+    height: 30px;
+    width: auto;
+    object-fit: contain;
+}

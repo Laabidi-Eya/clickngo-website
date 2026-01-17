@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modifier un Produit</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="sidebar">
+    <div>
+      <img src="logo.png" alt="Logo" class="logo">
+      <h1>Click'N'go</h1>
+      <div class="menu-item" data-section="overview">🏠 Tableau de Bord</div>
+      <div class="menu-item active" data-section="products">📦 Produits</div>
+      <div class="menu-item" data-section="orders">📋 Commandes</div>
+      <div class="menu-item" data-section="promos">🎁 Promotions</div>
+      <div class="menu-item" data-section="reviews">⭐ Avis</div>
+      <div class="menu-item" data-section="settings">⚙️ Réglages</div>
+    </div>
+    <div class="menu-item">🚪 Déconnexion</div>
+  </div>
+
+  <div class="dashboard">
+    <div class="dashboard-section active" id="products">
+      <div class="header">
+        <h2>Gestion des Produits 📦</h2>
+        <div class="profile-container">
+          <div class="profile">
+            <img src="user.webp" alt="Profile Picture">
+          </div>
+        </div>
+      </div>
+
+      <div class="add-product-nav">
+        <a href="index.html#products" class="add-product-btn">➕</a>
+        <a href="index.html#products" class="btn">Retour</a>
+      </div>
+
+      <div class="product-cards">
+        <div class="card" data-id="1">
+          <h3>Montre connectée</h3>
+          <p>Stock: 15 unités | Prix: 3347 TND<br>Achat: Oui | Location: Oui</p>
+          <div class="progress-bar">
+            <div class="progress-bar-fill" style="width: 30%;"></div>
+          </div>
+          <div class="card-buttons">
+            <button class="btn edit-button" onclick="openProductModal('edit', this)">Sélectionner</button>
+          </div>
+        </div>
+        <div class="card" data-id="2">
+          <h3>Tapis de yoga</h3>
+          <p>Stock: 50 unités | Prix: 1672 TND<br>Achat: Oui | Location: Non</p>
+          <div class="progress-bar">
+            <div class="progress-bar-fill" style="width: 75%;"></div>
+          </div>
+          <div class="card-buttons">
+            <button class="btn edit-button" onclick="openProductModal('edit', this)">Sélectionner</button>
+          </div>
+        </div>
+        <div class="card" data-id="3">
+          <h3>Caméra instantanée</h3>
+          <p>Stock: 30 unités | Prix: 667 TND<br>Achat: Oui | Location: Oui</p>
+          <div class="progress-bar">
+            <div class="progress-bar-fill" style="width: 50%;"></div>
+          </div>
+          <div class="card-buttons">
+            <button class="btn edit-button" onclick="openProductModal('edit', this)">Sélectionner</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Product Modal -->
+<div class="modal" id="productModal">
+  <div class="modal-content">
+    <h3 id="modalTitle">Modifier un Produit</h3>
+    <form id="productForm" novalidate>
+      <label for="productName">Nom</label>
+      <input type="text" id="productName" required>
+      <span class="error" id="productName_error" style="display:none; color:red;">Le nom doit contenir uniquement des lettres et au moins 2 caractères.</span>
+
+      <label for="productPrice">Prix (TND)</label>
+      <input type="number" id="productPrice" required min="0">
+      <span class="error" id="productPrice_error" style="display:none; color:red;">Le prix doit être un nombre positif.</span>
+
+      <label for="productStock">Stock</label>
+      <input type="number" id="productStock" required min="0">
+      <span class="error" id="productStock_error" style="display:none; color:red;">Le stock doit être un entier positif.</span>
+
+      <label for="productCategory">Catégorie</label>
+      <select id="productCategory" required>
+        <option value="Sport">Équipements Sportifs</option>
+        <option value="Vêtements">Vêtements et Accessoires</option>
+        <option value="Tech">Gadgets & Technologies</option>
+        <option value="Bien-être">Articles de Bien-être</option>
+      </select>
+
+      <label for="productPurchase">Disponible à l'achat</label>
+      <select id="productPurchase" required>
+        <option value="yes">Oui</option>
+        <option value="no">Non</option>
+      </select>
+
+      <label for="productRental">Disponible à la location</label>
+      <select id="productRental" required>
+        <option value="yes">Oui</option>
+        <option value="no">Non</option>
+      </select>
+
+      <div class="form-buttons">
+        <button type="button" class="close-btn" onclick="closeModal()">Annuler</button>
+        <button type="submit" class="save-btn">Enregistrer</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  document.getElementById('productForm').addEventListener('submit', function(event) {
+    let form = event.target;
+    let hasErrors = false;
+
+    const nameRegex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s'-]+$/;
+
+    // Vérification du nom
+    const nameInput = document.getElementById('productName');
+    const nameError = document.getElementById('productName_error');
+    const nameValue = nameInput.value.trim();
+
+    if (nameValue.length < 2 || !nameRegex.test(nameValue)) {
+      nameError.style.display = 'inline';
+      hasErrors = true;
+    } else {
+      nameError.style.display = 'none';
+    }
+
+    // Vérification du prix
+    const priceInput = document.getElementById('productPrice');
+    const priceError = document.getElementById('productPrice_error');
+    const priceValue = parseFloat(priceInput.value);
+
+    if (isNaN(priceValue) || priceValue <= 0) {
+      priceError.style.display = 'inline';
+      hasErrors = true;
+    } else {
+      priceError.style.display = 'none';
+    }
+
+    // Vérification du stock
+    const stockInput = document.getElementById('productStock');
+    const stockError = document.getElementById('productStock_error');
+    const stockValue = parseInt(stockInput.value);
+
+    if (isNaN(stockValue) || stockValue < 0 || !Number.isInteger(stockValue)) {
+      stockError.style.display = 'inline';
+      hasErrors = true;
+    } else {
+      stockError.style.display = 'none';
+    }
+
+    // Si erreurs, empêche l'envoi
+    if (hasErrors) {
+      event.preventDefault();
+    }
+  });
+</script>
+
+
+  <script src="scripts.js"></script>
+  <script>
+    function openProductModal(mode, button) {
+      const modal = document.getElementById('productModal');
+      const title = document.getElementById('modalTitle');
+      
+      if (mode === 'edit' && button) {
+        title.textContent = 'Modifier un Produit';
+        const card = button.closest('.card');
+        const name = card.querySelector('h3').textContent;
+        const price = card.querySelector('p').textContent.match(/Prix: (\d+)/)[1];
+        const stock = card.querySelector('p').textContent.match(/Stock: (\d+)/)[1];
+        const purchase = card.querySelector('p').textContent.includes('Achat: Oui') ? 'yes' : 'no';
+        const rental = card.querySelector('p').textContent.includes('Location: Oui') ? 'yes' : 'no';
+        document.getElementById('productName').value = name;
+        document.getElementById('productPrice').value = price;
+        document.getElementById('productStock').value = stock;
+        document.getElementById('productPurchase').value = purchase;
+        document.getElementById('productRental').value = rental;
+      }
+      
+      modal.style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('productModal').style.display = 'none';
+    }
+
+    document.getElementById('productForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('productName').value;
+      const price = document.getElementById('productPrice').value;
+      const stock = document.getElementById('productStock').value;
+      const purchase = document.getElementById('productPurchase').value;
+      const rental = document.getElementById('productRental').value;
+      alert(`Produit ${name} sauvegardé ! Prix: ${price} TND, Stock: ${stock}, Achat: ${purchase}, Location: ${rental}`);
+      closeModal();
+    });
+
+    // Pre-select the product based on URL parameter
+    window.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const productId = urlParams.get('id');
+      if (productId) {
+        const card = document.querySelector(`.card[data-id="${productId}"]`);
+        if (card) {
+          const editButton = card.querySelector('.edit-button');
+          openProductModal('edit', editButton);
+        }
+      }
+    });
+  </script>
+</body>
+</html>

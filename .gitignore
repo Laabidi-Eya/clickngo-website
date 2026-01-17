@@ -1,0 +1,25 @@
+# Ignore all vendor folders recursively
+**/vendor/
+
+# Environment files
+**/.env
+
+# Node modules
+**/node_modules/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+/.idea/
+/*.iml
+/.vscode/
+
+# Temporary/cache files
+/tmp/
+/cache/
+*.cache
