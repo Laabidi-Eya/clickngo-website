@@ -42,7 +42,7 @@ try {
 <head>
     <meta charset="UTF-8">
     <title>Demandes de covoiturage</title>
-    <link rel="stylesheet" href="/Projet Web/mvcCovoiturage/public/css/style.css">
+    <link rel="stylesheet" href="/mvcCovoiturage/public/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">

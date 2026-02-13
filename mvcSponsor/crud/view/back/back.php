@@ -779,12 +779,12 @@ function stringToColor($str)
   <div class="navbar-backoffice-wrapper">
     <div class="profile-container1">
     <!-- Liens de navigation -->
-    <a href="/Projet%20Web/mvcUtilisateur/View/BackOffice/indeex.php" class="nav-link">Utilisateurs</a>
-    <a href="/Projet Web/mvcact/view/back office/dashboard.php" class="nav-link" data-section="activites">Activités</a>
-    <a href="/Projet Web/mvcEvent/View/BackOffice/dashboard.php" class="nav-link" data-section="evenements">Événements</a>
-    <a href="/Projet Web/mvcProduit/view/back office/indeex.php" class="nav-link" data-section="produits">Produits</a>
-    <a href="/Projet Web/mvcCovoiturage/view/backoffice/dashboard.php" class="nav-link" data-section="transports">Transports</a>
-    <a href="/Projet Web/mvcSponsor/crud/view/back/back.php" class="nav-link active" data-section="sponsors">Sponsors</a>
+    <a href="/mvcUtilisateur/View/BackOffice/indeex.php" class="nav-link">Utilisateurs</a>
+    <a href="/mvcact/view/back office/dashboard.php" class="nav-link" data-section="activites">Activités</a>
+    <a href="/mvcEvent/View/BackOffice/dashboard.php" class="nav-link" data-section="evenements">Événements</a>
+    <a href="/mvcProduit/view/back office/indeex.php" class="nav-link" data-section="produits">Produits</a>
+    <a href="/mvcCovoiturage/view/backoffice/dashboard.php" class="nav-link" data-section="transports">Transports</a>
+    <a href="/mvcSponsor/crud/view/back/back.php" class="nav-link active" data-section="sponsors">Sponsors</a>
     <div class="profile-container">
     <!-- Profil à droite -->
 
@@ -798,7 +798,7 @@ function stringToColor($str)
           $showPhoto = !empty($photoPath) && $absolutePath && file_exists($absolutePath);
           ?>
           <?php if ($showPhoto): ?>
-            <img src="/Projet Web/mvcUtilisateur/View/FrontOffice/<?= htmlspecialchars($photoPath) ?>"
+            <img src="/mvcUtilisateur/View/FrontOffice/<?= htmlspecialchars($photoPath) ?>"
               alt="Photo de profil"
               class="profile-photo"
               onclick="toggleDropdown()">
@@ -811,8 +811,8 @@ function stringToColor($str)
           <?php endif; ?>
 
           <div class="dropdown-menu" id="dropdownMenu">
-            <a href="/Projet Web/mvcUtilisateur/View/FrontOffice/profile.php">👤 Mon Profil</a>
-            <a href="/Projet Web/mvcUtilisateur/View/BackOffice/login/logout.php">🚪 Déconnexion</a>
+            <a href="/mvcUtilisateur/View/FrontOffice/profile.php">👤 Mon Profil</a>
+            <a href="/mvcUtilisateur/View/BackOffice/login/logout.php">🚪 Déconnexion</a>
           </div>
         <?php endif; ?>
       </div>
@@ -823,7 +823,7 @@ function stringToColor($str)
     <!-- Sidebar with original sponsor menu items but dashboard styling -->
     <div class="sidebar">
         <div>
-            <img src="/Projet Web/mvcProduit/view/back office/logo.png" alt="Logo" class="logo">
+            <img src="/mvcProduit/view/back office/logo.png" alt="Logo" class="logo">
 
             <div class="menu-item active" data-tab="sponsors" tabindex="0" role="button" aria-pressed="true">
                 <span class="icon">🏠</span> Sponsors

@@ -234,7 +234,7 @@ if (isset($_GET['idChatbox'])) {
       ?>
 
       <?php if ($showPhoto): ?>
-        <img src="/Projet Web/mvcUtilisateur/View/FrontOffice/<?= htmlspecialchars($photoPath) ?>"
+        <img src="/mvcUtilisateur/View/FrontOffice/<?= htmlspecialchars($photoPath) ?>"
           alt="Photo de profil"
           class="profile-photo"
           style="width: 50px; height: 50px; border-radius: 50%; cursor: pointer; object-fit: cover;"
@@ -250,8 +250,8 @@ if (isset($_GET['idChatbox'])) {
 
       <!-- Menu déroulant -->
       <div class="dropdown-menu" id="dropdownMenu" style="display: none; position: absolute; right: 0; top: 60px; background: white; border: 1px solid #ccc; border-radius: 6px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); z-index: 1000;">
-        <a href="/Projet Web/mvcUtilisateur/View/FrontOffice/profile.php" style="display: block; padding: 10px; text-decoration: none; color: black;">👤 Mon Profil</a>
-        <a href="/Projet Web/mvcUtilisateur/View/BackOffice/login/logout.php" style="display: block; padding: 10px; text-decoration: none; color: black;">🚪 Déconnexion</a>
+        <a href="/mvcUtilisateur/View/FrontOffice/profile.php" style="display: block; padding: 10px; text-decoration: none; color: black;">👤 Mon Profil</a>
+        <a href="/mvcUtilisateur/View/BackOffice/login/logout.php" style="display: block; padding: 10px; text-decoration: none; color: black;">🚪 Déconnexion</a>
       </div>
     <?php endif; ?>
   </div>

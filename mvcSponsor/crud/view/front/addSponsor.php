@@ -6,7 +6,7 @@ require_once(__DIR__ . "../../../../../mvcEvent/Config.php");
 
 // Redirect to login if user is not authenticated
 if (!isset($_SESSION['user']) || !isset($_SESSION['user']['id_user'])) {
-    header("Location: /Projet%20Web/mvcUtilisateur/View/BackOffice/login/login.php");
+    header("Location: /mvcUtilisateur/View/BackOffice/login/login.php");
     exit();
 }
 
@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } elseif ($fileSize > $maxSize) {
             $fieldErrors['logo'] = "La taille du logo ne doit pas dépasser 2 Mo.";
         } else {
-            $uploadDir = __DIR__ . '/Projet Web/mvcSponsor/crud/view/front/images/sponsors';
+            $uploadDir = __DIR__ . '/images/sponsors';
             if (!is_dir($uploadDir)) {
                 mkdir($uploadDir, 0755, true);
             }

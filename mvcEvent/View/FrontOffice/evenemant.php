@@ -10,7 +10,7 @@ if (isset($_SESSION['user']) && isset($_SESSION['user']['id_user'])) {
     $user_id = $_SESSION['user']['id_user'];
 } else {
     // Redirection ou message d'erreur si l'utilisateur n'est pas connecté
-    header("Location: /Projet Web/mvcUtilisateur/View/BackOffice/login/login.php");
+    header("Location: /mvcUtilisateur/View/BackOffice/login/login.php");
     exit;
 }
 
@@ -18,7 +18,7 @@ if (isset($_SESSION['user']) && isset($_SESSION['user']['id_user'])) {
 $is_new_user = true; // Par défaut, considérer comme nouveau
 if ($user_id !== null && is_int($user_id) && $user_id > 0) {
     try {
-        $db = new PDO('mysql:host=localhost;dbname=click\'n\'go;charset=utf8mb4', 'root', '');
+        $db = new PDO('mysql:host=localhost;dbname=clickngo_db;charset=utf8mb4', 'root', '');
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         // Vérifier les réservations
@@ -61,7 +61,7 @@ $categories = [
 ];
 
 $python_exec = 'C:/Users/Mega-PC/AppData/Local/Programs/Python/Python312/python.exe';
-$python_script = 'C:/xampp/htdocs/Projet Web/mvcEvent/recommend_events.py';
+$python_script = __DIR__ . '/../../recommend_events.py';
 $recommendations = [];
 
 if (!file_exists($python_exec)) {
@@ -680,12 +680,12 @@ function showMessage(txt) {
         <nav>
             <img src="images/logo.png" class="logo">
             <ul class="nav-links">
-                <li><a href="/Projet%20Web/mvcUtilisateur/View/FrontOffice/index.php">Accueil</a></li>
-                <li><a href="/Projet Web/mvcact/view/front office/activite.php">Activités</a></li>
-                <li><a href="/Projet%20Web/mvcEvent/View/FrontOffice/evenemant.php">Événements</a></li>
-                <li><a href="/Projet Web/mvcProduit/view/front office/produit.php">Produits</a></li>
-                <li><a href="/Projet Web/mvcCovoiturage/view/index.php">Transports</a></li>
-                <li><a href="/Projet%20Web/mvcSponsor/crud/view/front/index.php">Sponsors</a></li>
+                <li><a href="/mvcUtilisateur/View/FrontOffice/index.php">Accueil</a></li>
+                <li><a href="/mvcact/view/front office/activite.php">Activités</a></li>
+                <li><a href="/mvcEvent/View/FrontOffice/evenemant.php">Événements</a></li>
+                <li><a href="/mvcProduit/view/front office/produit.php">Produits</a></li>
+                <li><a href="/mvcCovoiturage/view/index.php">Transports</a></li>
+                <li><a href="/mvcSponsor/crud/view/front/index.php">Sponsors</a></li>
             </ul>
 
                   <script>
@@ -744,7 +744,7 @@ function showMessage(txt) {
             <!-- Vérification de l'état de connexion -->
 <?php if (!isset($_SESSION['user'])): ?>
   <!-- 🔒 Utilisateur non connecté : bouton vers login -->
-  <a href="/Projet Web/mvcUtilisateur/View/BackOffice/login/login.php" class="register-btn" title="Connexion/Inscription">
+  <a href="/mvcUtilisateur/View/BackOffice/login/login.php" class="register-btn" title="Connexion/Inscription">
     <i class="fas fa-user"></i>
   </a>
 <?php else: ?>
@@ -771,12 +771,12 @@ function showMessage(txt) {
     <!-- ✅ Badge vérification -->
     <div class="verification-status" style="position: absolute; bottom: -5px; right: -5px;">
       <?php if ($verified): ?>
-        <img src="/Projet Web/mvcUtilisateur/assets/icons/verified.png"
+        <img src="/mvcUtilisateur/assets/icons/verified.png"
           alt="Compte vérifié"
           title="Compte Vérifié"
           style="width: 20px; height: 20px;">
       <?php else: ?>
-        <img src="/Projet Web/mvcUtilisateur/assets/icons/not_verified.png"
+        <img src="/mvcUtilisateur/assets/icons/not_verified.png"
           alt="Compte non vérifié"
           title="Compte Non Vérifié"
           style="width: 20px; height: 20px; cursor: pointer;"
@@ -786,8 +786,8 @@ function showMessage(txt) {
 
     <!-- Menu déroulant -->
     <div class="dropdown-menu" id="dropdownMenu" style="display: none; position: absolute; top: 120%; right: 0; background-color: white; border-radius: 5px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); z-index: 100;">
-      <a href="/Projet Web/mvcUtilisateur/View/FrontOffice/profile.php" style="display: block; padding: 10px;">👤 Mon Profil</a>
-      <a href="/Projet Web/mvcUtilisateur/View/BackOffice/login/logout.php" style="display: block; padding: 10px;">🚪 Déconnexion</a>
+      <a href="/mvcUtilisateur/View/FrontOffice/profile.php" style="display: block; padding: 10px;">👤 Mon Profil</a>
+      <a href="/mvcUtilisateur/View/BackOffice/login/logout.php" style="display: block; padding: 10px;">🚪 Déconnexion</a>
     </div>
   </div>
 <?php endif; ?>
@@ -1632,23 +1632,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
         <div class="links">
             <p>À propos</p>
-            <a href="/Projet%20Web/mvcact/view/front%20office/about.php">À propos</a>
+            <a href="/mvcact/view/front%20office/about.php">À propos</a>
 
                
-                <a href="/Projet%20Web/mvcact/view/front%20office/presse.php">Presse</a>
+                <a href="/mvcact/view/front%20office/presse.php">Presse</a>
 
-                <a href="/Projet%20Web/mvcact/view/front%20office/nous-rejoindre.php">Nous rejoindre</a>
+                <a href="/mvcact/view/front%20office/nous-rejoindre.php">Nous rejoindre</a>
 
         </div>
 
         <div class="links">
             <p>Liens utiles</p>
-             <a href="/Projet Web/mvcact/view/front office/devenir-partenaire.php" class="hover:text-[#be3cf0]">Devenir partenaire</a>
+             <a href="/mvcact/view/front office/devenir-partenaire.php" class="hover:text-[#be3cf0]">Devenir partenaire</a>
 
 
 
-                <a href="/Projet Web/mvcact/view/front office/faq.php" class="hover:text-[#be3cf0]">FAQ</a>
-               <a href="/Projet Web/mvcact/view/front office/avis.php" class="hover:text-[#be3cf0]">Avis</a>
+                <a href="/mvcact/view/front office/faq.php" class="hover:text-[#be3cf0]">FAQ</a>
+               <a href="/mvcact/view/front office/avis.php" class="hover:text-[#be3cf0]">Avis</a>
         </div>
     </div>
 
@@ -1658,9 +1658,9 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="footer-bottom">
                 <p>© click'N'go 2025 - tous droits réservés</p>
                 <div class="footer-links-bottom">
-                   <a href="/Projet Web/mvcact/view/front office/conditions-generales.php" class="hover:text-[#be3cf0]">Conditions générales</a>
+                   <a href="/mvcact/view/front office/conditions-generales.php" class="hover:text-[#be3cf0]">Conditions générales</a>
 
-<a href="/Projet Web/mvcact/view/front office/devenir-partenaire.php" class="hover:text-[#be3cf0]">Devenir partenaire</a>
+<a href="/mvcact/view/front office/devenir-partenaire.php" class="hover:text-[#be3cf0]">Devenir partenaire</a>
                 </div>
             </div>
         </div>

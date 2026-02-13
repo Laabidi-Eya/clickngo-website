@@ -893,7 +893,7 @@ function stringToColor($str)
   <!-- Sidebar with dashboard styling -->
   <div class="sidebar">
     <div>
-      <img src="/Projet Web/mvcProduit/view/back office/logo.png" alt="Logo" class="logo">
+      <img src="/mvcProduit/view/back office/logo.png" alt="Logo" class="logo">
       
       <div class="menu-item active" data-section="overview">
         <span class="icon">🏠</span> Tableau de Bord
@@ -914,7 +914,7 @@ function stringToColor($str)
         <span class="icon">🖼️</span> Générateur d'Images IA
       </div>
 
-      <a href="/Projet%20Web/mvcUtilisateur/View/BackOffice/chatbox.php" class="chat-admin-button" id="chatAdminBtn">
+      <a href="/mvcUtilisateur/View/BackOffice/chatbox.php" class="chat-admin-button" id="chatAdminBtn">
         💬 Aller au Chat Admin
         <span id="badgeCount" class="badge" style="display:none;"></span>
       </a>
@@ -942,7 +942,7 @@ function stringToColor($str)
 
       <script>
         function refreshUnreadBadge() {
-          fetch('/Projet%20Web/mvcUtilisateur/View/BackOffice/count_unread.php')
+          fetch('/mvcUtilisateur/View/BackOffice/count_unread.php')
             .then(response => response.json())
             .then(data => {
               const badge = document.getElementById('badgeCount');
@@ -978,12 +978,12 @@ function stringToColor($str)
       <div class="navbar-backoffice-wrapper">
         <nav class="navbar-backoffice">
           <ul>
-            <li><a href="/Projet%20Web/mvcUtilisateur/View/BackOffice/indeex.php" class="nav-link active">Utilisateurs</a></li>
-            <li><a href="/Projet%20Web/mvcact/view/back%20office/dashboard.php" class="nav-link">Activités</a></li>
-            <li><a href="/Projet%20Web/mvcEvent/View/BackOffice/dashboard.php" class="nav-link">Événements</a></li>
-            <li><a href="/Projet%20Web/mvcProduit/view/back%20office/indeex.php" class="nav-link">Produits</a></li>
-            <li><a href="/Projet%20Web/mvcCovoiturage/view/backoffice/dashboard.php" class="nav-link">Transports</a></li>
-            <li><a href="/Projet%20Web/mvcSponsor/crud/view/back/back.php" class="nav-link">Sponsors</a></li>
+            <li><a href="/mvcUtilisateur/View/BackOffice/indeex.php" class="nav-link active">Utilisateurs</a></li>
+            <li><a href="/mvcact/view/back%20office/dashboard.php" class="nav-link">Activités</a></li>
+            <li><a href="/mvcEvent/View/BackOffice/dashboard.php" class="nav-link">Événements</a></li>
+            <li><a href="/mvcProduit/view/back%20office/indeex.php" class="nav-link">Produits</a></li>
+            <li><a href="/mvcCovoiturage/view/backoffice/dashboard.php" class="nav-link">Transports</a></li>
+            <li><a href="/mvcSponsor/crud/view/back/back.php" class="nav-link">Sponsors</a></li>
             <li class="profile-container">
 
               <div class="user-profile">
@@ -996,15 +996,15 @@ function stringToColor($str)
                   $showPhoto = !empty($photoPath) && $absolutePath && file_exists($absolutePath);
                   ?>
                   <?php if ($showPhoto): ?>
-                    <img src="/Projet Web/mvcUtilisateur/View/FrontOffice/<?= htmlspecialchars($photoPath) ?>" alt="Photo de profil" class="profile-photo" onclick="toggleDropdown()">
+                    <img src="/mvcUtilisateur/View/FrontOffice/<?= htmlspecialchars($photoPath) ?>" alt="Photo de profil" class="profile-photo" onclick="toggleDropdown()">
                   <?php else: ?>
                     <div class="profile-circle" style="background-color: <?= stringToColor($fullName) ?>;" onclick="toggleDropdown()">
                       <?= strtoupper(substr($fullName, 0, 1)) ?>
                     </div>
                   <?php endif; ?>
                   <div class="dropdown-menu" id="dropdownMenu">
-                    <a href="/Projet Web/mvcUtilisateur/View/FrontOffice/profile.php">👤 Mon Profil</a>
-                    <a href="/Projet Web/mvcUtilisateur/View/BackOffice/login/logout.php">🚪 Déconnexion</a>
+                    <a href="/mvcUtilisateur/View/FrontOffice/profile.php">👤 Mon Profil</a>
+                    <a href="/mvcUtilisateur/View/BackOffice/login/logout.php">🚪 Déconnexion</a>
                   </div>
                 <?php endif; ?>
               </div>
@@ -1609,7 +1609,7 @@ document.getElementById('generateBtn').addEventListener('click', async function 
                 $num = htmlspecialchars($user->getNumUser());
                 $role = addslashes($user->getRole());
                 $displayRole = htmlspecialchars($user->getRole());
-                $photoPath = "/Projet Web/mvcUtilisateur/View/FrontOffice/" . htmlspecialchars($user->getProfilePicture());
+                $photoPath = "/mvcUtilisateur/View/FrontOffice/" . htmlspecialchars($user->getProfilePicture());
 
                 echo "<tr id='user-row-{$id}'>
       <td><img src='{$photoPath}' alt='Profile' style='width:40px;height:40px;border-radius:50%;object-fit:cover;'></td>

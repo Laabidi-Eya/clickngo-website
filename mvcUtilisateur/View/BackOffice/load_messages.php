@@ -129,7 +129,7 @@ if ($currentUserId != $authorId && !in_array($currentUserId, $seenBy)) {
 
         // Avatar
         if ($hasPhoto) {
-            $webPath = '/Projet Web/mvcUtilisateur/' . $relativePath;
+            $webPath = '/mvcUtilisateur/' . $relativePath;
             echo "<img src='" . htmlspecialchars($webPath) . "' class='chat-avatar' alt='avatar'>";
         } else {
             $color = stringToColor($name);
@@ -150,7 +150,7 @@ if (!empty($text)) {
 
         if (!empty($msg['file_path'])) {
             $ext = strtolower(pathinfo($msg['file_path'], PATHINFO_EXTENSION));
-            $fileUrl = '/Projet Web/mvcUtilisateur/' . $msg['file_path'];
+            $fileUrl = '/mvcUtilisateur/' . $msg['file_path'];
 
             if (in_array($ext, ['jpg', 'jpeg', 'png', 'gif', 'webp'])) {
                 echo "<img src='" . htmlspecialchars($fileUrl) . "' class='chat-image' alt='Image' />";

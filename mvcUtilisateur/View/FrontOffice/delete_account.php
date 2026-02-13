@@ -3,7 +3,7 @@ session_start();
 
 // 1. Vérification de la connexion
 if (!isset($_SESSION['user'])) {
-    header("Location: /Projet%20Web/mvcUtilisateur/View/BackOffice/login/login.php");
+    header("Location: /mvcUtilisateur/View/BackOffice/login/login.php");
     exit;
 }
 
@@ -47,7 +47,7 @@ try {
         session_destroy();
         
         // 9. Redirection avec confirmation
-        header("Location: /Projet%20Web/index.php?account_deleted=1");
+        header("Location: /mvcUtilisateur/View/FrontOffice/index.php?account_deleted=1");
     } else {
         $_SESSION['error'] = "La suppression a échoué";
         header("Location: profile.php");

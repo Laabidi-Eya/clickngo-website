@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 session_start();
 require_once __DIR__ . '/../../controller/ActivityController.php';
 require_once __DIR__ . '/../../controller/EnterpriseController.php';
@@ -1047,12 +1047,12 @@ menu-item:hover, .menu-item.active {
       <div class="navbar-backoffice-wrapper">
         <nav class="navbar-backoffice">
         <ul>
-            <li><a href="/Projet%20Web/mvcUtilisateur/View/BackOffice/indeex.php" class="nav-link">Utilisateurs</a></li>
-            <li><a href="/Projet%20Web/mvcact/view/back%20office/dashboard.php" class="nav-link active">Activités</a></li>
-            <li><a href="/Projet%20Web/mvcEvent/View/BackOffice/dashboard.php" class="nav-link">Événements</a></li>
-            <li><a href="/Projet%20Web/mvcProduit/view/back%20office/indeex.php" class="nav-link">Produits</a></li>
-            <li><a href="/Projet%20Web/mvcCovoiturage/view/backoffice/dashboard.php" class="nav-link">Transports</a></li>
-            <li><a href="/Projet%20Web/mvcSponsor/crud/view/back/back.php" class="nav-link">Sponsors</a></li>
+            <li><a href="/mvcUtilisateur/View/BackOffice/indeex.php" class="nav-link">Utilisateurs</a></li>
+            <li><a href="/mvcact/view/back%20office/dashboard.php" class="nav-link active">Activités</a></li>
+            <li><a href="/mvcEvent/View/BackOffice/dashboard.php" class="nav-link">Événements</a></li>
+            <li><a href="/mvcProduit/view/back%20office/indeex.php" class="nav-link">Produits</a></li>
+            <li><a href="/mvcCovoiturage/view/backoffice/dashboard.php" class="nav-link">Transports</a></li>
+            <li><a href="/mvcSponsor/crud/view/back/back.php" class="nav-link">Sponsors</a></li>
             <li class="profile-container">
 
         <div class="user-profile">
@@ -1067,15 +1067,15 @@ menu-item:hover, .menu-item.active {
                 ?>
                 
                 <?php if ($showPhoto): ?>
-                    <img src="/Projet%20Web/mvcUtilisateur/View/FrontOffice/<?= htmlspecialchars($photoPath) ?>" alt="Photo de profil" class="profile-photo" onclick="toggleDropdown()">
+                    <img src="/mvcUtilisateur/View/FrontOffice/<?= htmlspecialchars($photoPath) ?>" alt="Photo de profil" class="profile-photo" onclick="toggleDropdown()">
                 <?php else: ?>
                     <div class="profile-circle" style="background-color: <?= stringToColor($fullName) ?>;" onclick="toggleDropdown()">
                         <?= strtoupper(substr($fullName, 0, 1)) ?>
                     </div>
                 <?php endif; ?>
                 <div class="dropdown-menu" id="dropdownMenu">
-                    <a href="/Projet%20Web/mvcUtilisateur/View/FrontOffice/profile.php">👤 Mon Profil</a>
-                    <a href="/Projet%20Web/mvcUtilisateur/View/BackOffice/login/logout.php">🚪 Déconnexion</a>
+                    <a href="/mvcUtilisateur/View/FrontOffice/profile.php">👤 Mon Profil</a>
+                    <a href="/mvcUtilisateur/View/BackOffice/login/logout.php">🚪 Déconnexion</a>
                 </div>
             <?php endif; ?>
         </div>

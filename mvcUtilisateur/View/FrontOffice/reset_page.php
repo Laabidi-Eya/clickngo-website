@@ -27,7 +27,7 @@ if (isset($_SESSION['user'])) {
     </style>
 </head>
 <body>
-<a href="<?php echo isset($_SESSION['user']) ? '/Projet%20Web/mvcUtilisateur/View/FrontOffice/edit_profile.php' : 'http://localhost/Projet%20Web/mvcUtilisateur/View/FrontOffice/reset_request.php'; ?>">
+<a href="<?php echo isset($_SESSION['user']) ? '/mvcUtilisateur/View/FrontOffice/edit_profile.php' : 'http://localhost/mvcUtilisateur/View/FrontOffice/reset_request.php'; ?>">
     <button style="background:#bdc3c7;">⬅️ Retour</button>
 </a>
 <div class="container">
@@ -97,9 +97,9 @@ function showNewPasswordPopup() {
                     }).then(() => {
                         const isLoggedIn = <?= isset($_SESSION['user']) ? 'true' : 'false' ?>;
                         if (isLoggedIn) {
-                            window.location.href = '/Projet%20Web/mvcUtilisateur/View/FrontOffice/edit_profile.php';
+                            window.location.href = '/mvcUtilisateur/View/FrontOffice/edit_profile.php';
                         } else {
-                            window.location.href = '/Projet%20Web/mvcUtilisateur/View/BackOffice/login/login.php';
+                            window.location.href = '/mvcUtilisateur/View/BackOffice/login/login.php';
                         }
                     });
                 } else {

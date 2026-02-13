@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'C:/xampp/htdocs/Projet Web/mvcUtilisateur/config.php';
+require_once __DIR__ . '/../../../config.php';
 
 // Récupérer l'ID utilisateur depuis l'URL ou la session
 $user_id = isset($_GET['user_id']) ? filter_var($_GET['user_id'], FILTER_VALIDATE_INT) : (isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null);

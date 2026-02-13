@@ -4,7 +4,7 @@ require_once __DIR__.'/../../Model/User.php';
 session_start();
 
 if (!isset($_SESSION['user'])) {
-    header("Location: /Projet%20Web/mvcUtilisateur/View/BackOffice/login/login.php");
+    header("Location: /mvcUtilisateur/View/BackOffice/login/login.php");
     exit;
 }
 
@@ -22,9 +22,9 @@ function displayProfilePicture($user, $size = 100)
     $color = stringToColor($user['full_name']);
 
     if (!empty($user['is_verified']) && $user['is_verified'] == 1) {
-        $badge = '<img src="/Projet Web/mvcUtilisateur/assets/icons/verified.png" title="Compte vérifié" style="width:18px; height:18px; position:absolute; bottom:-5px; right:-5px;">';
+        $badge = '<img src="/mvcUtilisateur/assets/icons/verified.png" title="Compte vérifié" style="width:18px; height:18px; position:absolute; bottom:-5px; right:-5px;">';
     } else {
-        $badge = '<img src="/Projet Web/mvcUtilisateur/assets/icons/not_verified.png" title="Compte non vérifié" style="width:18px; height:18px; position:absolute; bottom:-5px; right:-5px;">';
+        $badge = '<img src="/mvcUtilisateur/assets/icons/not_verified.png" title="Compte non vérifié" style="width:18px; height:18px; position:absolute; bottom:-5px; right:-5px;">';
     }
 
     if (!empty($user['profile_picture']) && file_exists($user['profile_picture'])) {
@@ -166,7 +166,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['profile_picture'])) 
     <a href="profile.php" class="return-link">⬅ Retour au profil</a>
     <h2 style="color:#8e44ad;">Modifier Mon Profil</h2>
 
-    <form id="profileForm" action="/Projet%20Web/mvcUtilisateur/Controller/AccountController.php?action=update" method="post" enctype="multipart/form-data">
+    <form id="profileForm" action="/mvcUtilisateur/Controller/AccountController.php?action=update" method="post" enctype="multipart/form-data">
         <label class="profile-picture-container">
             <?= displayProfilePicture($user, 100); ?>
             <input type="file" id="profile-picture-input" name="profile_picture" accept="image/*" class="hidden">
@@ -288,7 +288,7 @@ function changePassword() {
         }
     }).then((result) => {
         if (result.isDenied) {
-            window.location.href = "/Projet Web/mvcUtilisateur/View/FrontOffice/reset_request.php";
+            window.location.href = "/mvcUtilisateur/View/FrontOffice/reset_request.php";
         }
     });
 }

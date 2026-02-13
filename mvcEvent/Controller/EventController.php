@@ -1,7 +1,7 @@
 <?php 
-require_once 'C:/xampp/htdocs/projet Web/mvcEvent/Config.php';
-require 'C:/xampp/htdocs/projet Web/mvcEvent/Model/Event.php';
-require_once 'ChaiseController.php';
+require_once __DIR__ . '/../Config.php';
+require __DIR__ . '/../Model/Event.php';
+require_once __DIR__ . '/ChaiseController.php';
 
 class EventController {
 private $db;

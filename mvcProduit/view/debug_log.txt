@@ -26105,3 +26105,18 @@
 2025-09-18 17:31:15 - AvisController: Database connected successfully
 2025-09-18 17:31:15 - Database connected successfully
 2025-09-18 17:31:15 - AvisController: Database connected successfully
+2026-02-13 21:51:48 - Database connected successfully
+2026-02-13 21:51:48 - AvisController: Database connected successfully
+2026-02-13 21:51:48 - Database connected successfully
+2026-02-13 21:51:48 - AvisController: Database connected successfully
+2026-02-13 21:51:48 - getApprovedReviews: Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'clickngo_db.avis' doesn't exist
+2026-02-13 21:52:01 - Database connected successfully
+2026-02-13 21:52:01 - AvisController: Database connected successfully
+2026-02-13 21:52:01 - Database connected successfully
+2026-02-13 21:52:01 - AvisController: Database connected successfully
+2026-02-13 21:52:01 - getApprovedReviews: Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'clickngo_db.avis' doesn't exist
+2026-02-13 21:52:14 - Database connected successfully
+2026-02-13 21:52:14 - AvisController: Database connected successfully
+2026-02-13 21:52:14 - Database connected successfully
+2026-02-13 21:52:14 - AvisController: Database connected successfully
+2026-02-13 21:52:14 - getApprovedReviews: Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'clickngo_db.avis' doesn't exist

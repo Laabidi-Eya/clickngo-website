@@ -1,5 +1,9 @@
 <?php
-require_once 'vendor/autoload.php'; // Inclure l'autoloader de Composer
+// Autoload Composer à la racine du projet
+$rootAutoload = dirname(__DIR__) . '/vendor/autoload.php';
+if (file_exists($rootAutoload)) {
+    require_once $rootAutoload;
+}
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -14,7 +18,7 @@ class Config {
         if (!isset(self::$pdo)) {
             try {
                 self::$pdo = new PDO(
-                    'mysql:host=localhost;dbname=click\'n\'go;',
+                    'mysql:host=localhost;dbname=clickngo_db;',
                     'root',
                     '',
                     [

@@ -4,7 +4,7 @@ require_once '../../Controller/DemandeCovoiturageController.php';
 
 // Connexion DB
 try {
-    $pdo = new PDO("mysql:host=localhost;dbname=click'n'go", 'root', '');
+    $pdo = new PDO("mysql:host=localhost;dbname=clickngo_db", 'root', '');
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     die("Erreur DB: ".$e->getMessage());
@@ -588,12 +588,12 @@ function stringToColor($str)
   <div class="navbar-backoffice-wrapper">
         <div class="profile-container1">
     <!-- Liens de navigation -->
-    <a href="/Projet%20Web/mvcUtilisateur/View/BackOffice/indeex.php" class="nav-link">Utilisateurs</a>
-    <a href="/Projet Web/mvcact/view/back office/dashboard.php" class="nav-link" data-section="activites">Activités</a>
-    <a href="/Projet Web/mvcEvent/View/BackOffice/dashboard.php" class="nav-link" data-section="evenements">Événements</a>
-    <a href="/Projet Web/mvcProduit/view/back office/indeex.php" class="nav-link" data-section="produits">Produits</a>
-    <a href="/Projet Web/mvcCovoiturage/view/backoffice/dashboard.php" class="nav-link active" data-section="transports">Transports</a>
-    <a href="/Projet Web/mvcSponsor/crud/view/back/back.php" class="nav-link" data-section="sponsors">Sponsors</a>
+    <a href="/mvcUtilisateur/View/BackOffice/indeex.php" class="nav-link">Utilisateurs</a>
+    <a href="/mvcact/view/back office/dashboard.php" class="nav-link" data-section="activites">Activités</a>
+    <a href="/mvcEvent/View/BackOffice/dashboard.php" class="nav-link" data-section="evenements">Événements</a>
+    <a href="/mvcProduit/view/back office/indeex.php" class="nav-link" data-section="produits">Produits</a>
+    <a href="/mvcCovoiturage/view/backoffice/dashboard.php" class="nav-link active" data-section="transports">Transports</a>
+    <a href="/mvcSponsor/crud/view/back/back.php" class="nav-link" data-section="sponsors">Sponsors</a>
         <div class="profile-container">
     <!-- Profil à droite -->
 
@@ -607,7 +607,7 @@ function stringToColor($str)
           $showPhoto = !empty($photoPath) && $absolutePath && file_exists($absolutePath);
           ?>
           <?php if ($showPhoto): ?>
-            <img src="/Projet Web/mvcUtilisateur/View/FrontOffice/<?= htmlspecialchars($photoPath) ?>"
+            <img src="/mvcUtilisateur/View/FrontOffice/<?= htmlspecialchars($photoPath) ?>"
               alt="Photo de profil"
               class="profile-photo"
               onclick="toggleDropdown()">
@@ -620,8 +620,8 @@ function stringToColor($str)
           <?php endif; ?>
 
           <div class="dropdown-menu" id="dropdownMenu">
-            <a href="/Projet Web/mvcUtilisateur/View/FrontOffice/profile.php">👤 Mon Profil</a>
-            <a href="/Projet Web/mvcUtilisateur/View/BackOffice/login/logout.php">🚪 Déconnexion</a>
+            <a href="/mvcUtilisateur/View/FrontOffice/profile.php">👤 Mon Profil</a>
+            <a href="/mvcUtilisateur/View/BackOffice/login/logout.php">🚪 Déconnexion</a>
           </div>
         <?php endif; ?>
       </div>
@@ -632,7 +632,7 @@ function stringToColor($str)
     <!-- Sidebar from dashboard - EXACT COPY -->
     <div class="sidebar">
         <div>
-            <img src="/Projet Web/mvcProduit/view/back office/logo.png" alt="Logo" class="logo">
+            <img src="/mvcProduit/view/back office/logo.png" alt="Logo" class="logo">
 
             <div class="menu-item" data-section="overview" onclick="window.location.href='dashboard.php?page=1'"><span class="icon">🏠</span>Vue Générale</div>
             <div class="menu-item" data-section="annonces" onclick="window.location.href='annonces.php'"><span class="icon">📢</span> Annonces</div>

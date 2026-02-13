@@ -1,6 +1,6 @@
 <?php
-require_once 'C:/xampp/htdocs/Projet Web/mvcEvent/Config.php';
-require 'C:/xampp/htdocs/Projet Web/mvcEvent/Model/Chaise.php';
+require_once __DIR__ . '/../Config.php';
+require __DIR__ . '/../Model/Chaise.php';
 
 class ChaiseController {
 private $db;

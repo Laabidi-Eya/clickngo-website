@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__.'/../../../vendor/autoload.php';
-require_once __DIR__.'/../../../Controller/UserController.php';
+require_once dirname(__DIR__, 3) . '/vendor/autoload.php';
+require_once dirname(__DIR__, 3) . '/mvcUtilisateur/Controller/UserController.php';
 session_start();
 
 // Vérification initiale du state

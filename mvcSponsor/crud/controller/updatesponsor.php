@@ -95,7 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $sponsor->setPayment_code($paymentCode);
 
             // Generate payment link (match the path used in index.php)
-            $paymentLink = "http://localhost/Projet%20Web/mvcSponsor/crud/view/front/index.php?payment=1&id=$id_sponsor&code=$paymentCode";
+            $paymentLink = "http://localhost:8000/mvcSponsor/crud/view/front/index.php?payment=1&id=$id_sponsor&code=$paymentCode";
 
             // Send email using PHPMailer
             error_log("Preparing to send email to: $email");

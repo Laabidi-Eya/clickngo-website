@@ -1,6 +1,9 @@
 # Ignore all vendor folders recursively
 **/vendor/
 
+# Composer (local installer)
+composer.phar
+
 # Environment files
 **/.env
 
@@ -9,6 +12,7 @@
 
 # Logs
 *.log
+**/debug_log.txt
 
 # OS files
 .DS_Store

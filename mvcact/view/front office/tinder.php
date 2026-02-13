@@ -1,5 +1,5 @@
 <?php
-$conn = new mysqli("localhost", "root", "", "click'n'go");
+$conn = new mysqli("localhost", "root", "", "clickngo_db");
 if ($conn->connect_error) die("Erreur connexion DB");
 
 // Modifiez la requête SQL pour inclure l'ID
@@ -239,7 +239,7 @@ $result = $conn->query($sql);
 <body>
 
 
-  <button class="back-button" onclick="window.location.href='http://localhost/Projet%20Web/mvcact/view/front%20office/activite.php'">
+  <button class="back-button" onclick="window.location.href='http://localhost:8000/mvcact/view/front%20office/activite.php'">
     <i class="fa fa-arrow-left"></i>
   </button>
 
@@ -352,7 +352,7 @@ $result = $conn->query($sql);
           card.classList.add('animate-right');
           // Redirection vers la page de réservation après l'animation
           setTimeout(function() {
-            window.location.href = 'http://localhost/Projet%20Web/mvcact/view/front%20office/reservation.php?id=' + activityId;
+            window.location.href = 'http://localhost:8000/mvcact/view/front%20office/reservation.php?id=' + activityId;
           }, 500);
         } else {
           card.classList.add('animate-left');

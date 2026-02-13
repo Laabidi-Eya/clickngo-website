@@ -1,7 +1,11 @@
 <?php
 require_once __DIR__ . '/../Config.php';
 require_once __DIR__ . '/../Model/User.php';
-require_once __DIR__ . '/../vendor/autoload.php';
+// Autoload Composer (à la racine du projet, pas dans mvcUtilisateur)
+$rootAutoload = dirname(__DIR__, 2) . '/vendor/autoload.php';
+if (file_exists($rootAutoload)) {
+    require_once $rootAutoload;
+}
 
 
 class UserController
@@ -302,7 +306,7 @@ class UserController
 
             if ($user->save($db)) {
                 $_SESSION['register_success'] = "Votre compte a été créé avec succès !";
-                header("Location: /Projet%20Web/mvcUtilisateur/View/BackOffice/login/login.php");
+                header("Location: /mvcUtilisateur/View/BackOffice/login/login.php");
                 exit;
             }
 
@@ -327,7 +331,7 @@ class UserController
         }
 
         // Redirection en cas d'erreur
-        header("Location: /Projet%20Web/mvcUtilisateur/View/BackOffice/login/login.php");
+        header("Location: /mvcUtilisateur/View/BackOffice/login/login.php");
         exit;
     }
 
@@ -427,14 +431,14 @@ public function saveFaceData($user_id, $face_data, $face_image_path) {
 
             // Redirection selon le rôle
             if ($user->getRole() === 'admin') {
-                header("Location: /Projet%20Web/mvcUtilisateur/View/BackOffice/indeex.php");
+                header("Location: /mvcUtilisateur/View/BackOffice/indeex.php");
             } else {
-                header("Location: /Projet%20Web/mvcUtilisateur/View/FrontOffice/index.php");
+                header("Location: /mvcUtilisateur/View/FrontOffice/index.php");
             }
             exit;
         } catch (Exception $e) {
             // Redirection vers la page login avec le message d’erreur
-            header("Location: /Projet%20Web/mvcUtilisateur/View/BackOffice/login/login.php?error=" . urlencode($e->getMessage()));
+            header("Location: /mvcUtilisateur/View/BackOffice/login/login.php?error=" . urlencode($e->getMessage()));
             exit;
         }
     }

@@ -1,6 +1,6 @@
 <?php
 // Chemin absolu normalisé pour Windows
-$autoloadPath = realpath(__DIR__ . '../../vendor/autoload.php');
+$autoloadPath = realpath(dirname(__DIR__, 2) . '/vendor/autoload.php');
 
 if (!$autoloadPath) {
     die('Erreur : Impossible de trouver autoload.php. Exécutez "composer install"');

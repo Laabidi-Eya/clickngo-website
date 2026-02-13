@@ -7,7 +7,7 @@ def get_db_connection():
              host='localhost',
              user='root',
              password='',
-             database="click'n'go",
+             database="clickngo_db",
              charset='utf8mb4',
              cursorclass=pymysql.cursors.DictCursor
          )

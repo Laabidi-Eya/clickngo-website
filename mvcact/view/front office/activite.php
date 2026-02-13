@@ -2808,9 +2808,9 @@ function showMessage(txt) {
     <nav style="margin-top: -90px;">
       <img src="images/logo.png" class="logo" alt="Logo ClickNGo" style="filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.9));">
       <ul class="nav-links">
-        <li><a href="/Projet Web/mvcUtilisateur/View/FrontOffice/index.php">Accueil</a></li>
+        <li><a href="/mvcUtilisateur/View/FrontOffice/index.php">Accueil</a></li>
         <li class="dropdown">
-          <a href="/Projet Web/mvcact/view/front office/activite.php" class="dropbtn">Activités</a>
+          <a href="/mvcact/view/front office/activite.php" class="dropbtn">Activités</a>
           <div class="dropdown-content">
             <a href="#categories-section">Catégories</a>
             <a href="#activites-pres-de-vous">Activités près de vous</a>
@@ -2820,16 +2820,16 @@ function showMessage(txt) {
             <a href="#avis-clients">Avis clients</a>
           </div>
         </li>
-        <li><a href="/Projet Web/mvcEvent/View/FrontOffice/evenemant.php">Événements</a></li>
-        <li><a href="/Projet Web/mvcProduit/view/front office/produit.php">Produits</a></li>
-        <li><a href="/Projet Web/mvcCovoiturage/view/index.php">Transports</a></li>
-        <li><a href="/Projet Web/mvcSponsor/crud/view/front/index.php">Sponsors</a></li>
+        <li><a href="/mvcEvent/View/FrontOffice/evenemant.php">Événements</a></li>
+        <li><a href="/mvcProduit/view/front office/produit.php">Produits</a></li>
+        <li><a href="/mvcCovoiturage/view/index.php">Transports</a></li>
+        <li><a href="/mvcSponsor/crud/view/front/index.php">Sponsors</a></li>
       </ul>
 
 <!-- Vérification de l'état de connexion -->
 <?php if (!isset($_SESSION['user'])): ?>
   <!-- 🔒 Utilisateur non connecté : bouton vers login -->
-  <a href="/Projet Web/mvcUtilisateur/View/BackOffice/login/login.php" class="register-btn" title="Connexion/Inscription">
+  <a href="/mvcUtilisateur/View/BackOffice/login/login.php" class="register-btn" title="Connexion/Inscription">
     <i class="fas fa-user"></i>
   </a>
 <?php else: ?>
@@ -2856,12 +2856,12 @@ function showMessage(txt) {
     <!-- ✅ Badge vérification -->
     <div class="verification-status" style="position: absolute; bottom: -5px; right: -5px;">
       <?php if ($verified): ?>
-        <img src="/Projet Web/mvcUtilisateur/assets/icons/verified.png"
+        <img src="/mvcUtilisateur/assets/icons/verified.png"
           alt="Compte vérifié"
           title="Compte Vérifié"
           style="width: 20px; height: 20px;">
       <?php else: ?>
-        <img src="/Projet Web/mvcUtilisateur/assets/icons/not_verified.png"
+        <img src="/mvcUtilisateur/assets/icons/not_verified.png"
           alt="Compte non vérifié"
           title="Compte Non Vérifié"
           style="width: 20px; height: 20px; cursor: pointer;"
@@ -2871,8 +2871,8 @@ function showMessage(txt) {
 
     <!-- Menu déroulant -->
     <div class="dropdown-menu" id="dropdownMenu" style="display: none; position: absolute; top: 120%; right: 0; background-color: white; border-radius: 5px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); z-index: 100;">
-      <a href="/Projet Web/mvcUtilisateur/View/FrontOffice/profile.php" style="display: block; padding: 10px;">👤 Mon Profil</a>
-      <a href="/Projet Web/mvcUtilisateur/View/BackOffice/login/logout.php" style="display: block; padding: 10px;">🚪 Déconnexion</a>
+      <a href="/mvcUtilisateur/View/FrontOffice/profile.php" style="display: block; padding: 10px;">👤 Mon Profil</a>
+      <a href="/mvcUtilisateur/View/BackOffice/login/logout.php" style="display: block; padding: 10px;">🚪 Déconnexion</a>
     </div>
   </div>
 <?php endif; ?>
@@ -3146,7 +3146,7 @@ function showMessage(txt) {
                   <?php if (isset($_SESSION['user'])): ?>
                     <a href="reservation.php?id=<?= urlencode($activity['id']) ?>" class="register-btn">Réserver</a>
                   <?php else: ?>
-                    <a href="/Projet Web/mvcUtilisateur/View/BackOffice/login/login.php" class="register-btn">Réserver</a>
+                    <a href="/mvcUtilisateur/View/BackOffice/login/login.php" class="register-btn">Réserver</a>
                   <?php endif; ?>
 
                 </span>
@@ -3239,7 +3239,7 @@ function showMessage(txt) {
 <?php if (isset($_SESSION['user'])): ?>
   <a href="reservation.php?id=<?= urlencode($activity['id']) ?>" class="register-btn">Réserver</a>
 <?php else: ?>
-  <a href="/Projet Web/mvcUtilisateur/View/BackOffice/login/login.php" class="register-btn">Réserver</a>
+  <a href="/mvcUtilisateur/View/BackOffice/login/login.php" class="register-btn">Réserver</a>
 <?php endif; ?>
 
               </div>
@@ -4285,7 +4285,7 @@ function showMessage(txt) {
     form.addEventListener('submit', function(e) {
       if (!isLoggedIn) {
         e.preventDefault();
-        window.location.href = '/Projet Web/mvcUtilisateur/View/BackOffice/login/login.php';
+        window.location.href = '/mvcUtilisateur/View/BackOffice/login/login.php';
       }
     });
   </script>

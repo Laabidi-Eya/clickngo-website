@@ -41,7 +41,7 @@ try {
 <head>
 <meta charset="UTF-8">
 <title>Liste des covoiturages disponibles</title>
-   <link rel="stylesheet" href="/Projet Web/mvcCovoiturage/public/css/style.css">
+   <link rel="stylesheet" href="/mvcCovoiturage/public/css/style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -645,10 +645,10 @@ nav {
 
                         <img src="images/logo.png" class="logo"> 
 
-            <a href="/Projet Web/mvcUtilisateur/View/FrontOffice/index.php" class="hover:text-[#be3cf0]">Accueil</a>
-            <a href="/Projet Web/mvcact/view/front office/activite.php" class="hover:text-[#be3cf0]">Activités</a>
-            <a href="/Projet Web/mvcEvent/View/FrontOffice/evenemant.php" class="hover:text-[#be3cf0]">Événements</a>
-            <a href="/Projet Web/mvcProduit/view/front office/produit.php" class="hover:text-[#be3cf0]">Produits</a>
+            <a href="/mvcUtilisateur/View/FrontOffice/index.php" class="hover:text-[#be3cf0]">Accueil</a>
+            <a href="/mvcact/view/front office/activite.php" class="hover:text-[#be3cf0]">Activités</a>
+            <a href="/mvcEvent/View/FrontOffice/evenemant.php" class="hover:text-[#be3cf0]">Événements</a>
+            <a href="/mvcProduit/view/front office/produit.php" class="hover:text-[#be3cf0]">Produits</a>
 
 
             <div class="group relative">
@@ -665,7 +665,7 @@ nav {
             </div>
 
 
-                        <a href="/Projet%20Web/mvcSponsor/crud/view/front/index.php" class="hover:text-[#be3cf0]">Sponsors</a>
+                        <a href="/mvcSponsor/crud/view/front/index.php" class="hover:text-[#be3cf0]">Sponsors</a>
 
                 </div>
             
@@ -872,23 +872,23 @@ nav {
 
             <div class="links">
                 <p>À propos</p>
-                <a href="/Projet%20Web/mvcact/view/front%20office/about.php">À propos</a>
+                <a href="/mvcact/view/front%20office/about.php">À propos</a>
 
                
-                <a href="/Projet%20Web/mvcact/view/front%20office/presse.php">Presse</a>
+                <a href="/mvcact/view/front%20office/presse.php">Presse</a>
 
-                <a href="/Projet%20Web/mvcact/view/front%20office/nous-rejoindre.php">Nous rejoindre</a>
+                <a href="/mvcact/view/front%20office/nous-rejoindre.php">Nous rejoindre</a>
 
             </div>
 
             <div class="links">
                 <p>Liens utiles</p>
-             <a href="/Projet Web/mvcact/view/front office/devenir-partenaire.php" class="hover:text-[#be3cf0]">Devenir partenaire</a>
+             <a href="/mvcact/view/front office/devenir-partenaire.php" class="hover:text-[#be3cf0]">Devenir partenaire</a>
 
 
 
-                <a href="/Projet Web/mvcact/view/front office/faq.php" class="hover:text-[#be3cf0]">FAQ</a>
-               <a href="/Projet Web/mvcact/view/front office/avis.php" class="hover:text-[#be3cf0]">Avis</a>
+                <a href="/mvcact/view/front office/faq.php" class="hover:text-[#be3cf0]">FAQ</a>
+               <a href="/mvcact/view/front office/avis.php" class="hover:text-[#be3cf0]">Avis</a>
             </div>
         </div>
 
@@ -898,9 +898,9 @@ nav {
             <div class="footer-bottom">
                 <p>© click'N'go 2025 - tous droits réservés</p>
                 <div class="footer-links-bottom">
-                   <a href="/Projet Web/mvcact/view/front office/conditions-generales.php" class="hover:text-[#be3cf0]">Conditions générales</a>
+                   <a href="/mvcact/view/front office/conditions-generales.php" class="hover:text-[#be3cf0]">Conditions générales</a>
 
-<a href="/Projet Web/mvcact/view/front office/devenir-partenaire.php" class="hover:text-[#be3cf0]">Devenir partenaire</a>
+<a href="/mvcact/view/front office/devenir-partenaire.php" class="hover:text-[#be3cf0]">Devenir partenaire</a>
                 </div>
             </div>
         </div>

@@ -5,7 +5,7 @@ require_once __DIR__ . '/../../Model/User.php';
 session_start();
 
 if (!isset($_SESSION['user'])) {
-    header("Location: /Projet%20Web/mvcUtilisateur/View/BackOffice/login/login.php");
+    header("Location: /mvcUtilisateur/View/BackOffice/login/login.php");
     exit;
 }
 
@@ -35,9 +35,9 @@ function displayProfilePicture($user, $size = 100)
     $color = stringToColor($user['full_name']);
 
     if (!empty($user['is_verified']) && $user['is_verified'] == 1) {
-        $badge = '<img src="/Projet Web/mvcUtilisateur/assets/icons/verified.png" title="Compte vérifié" style="width:18px; height:18px; position:absolute; bottom:-5px; right:-5px;">';
+        $badge = '<img src="/mvcUtilisateur/assets/icons/verified.png" title="Compte vérifié" style="width:18px; height:18px; position:absolute; bottom:-5px; right:-5px;">';
     } else {
-        $badge = '<img src="/Projet Web/mvcUtilisateur/assets/icons/not_verified.png" title="Compte non vérifié" style="width:18px; height:18px; position:absolute; bottom:-5px; right:-5px;">';
+        $badge = '<img src="/mvcUtilisateur/assets/icons/not_verified.png" title="Compte non vérifié" style="width:18px; height:18px; position:absolute; bottom:-5px; right:-5px;">';
     }
 
     if (!empty($user['profile_picture']) && file_exists($user['profile_picture'])) {
@@ -325,7 +325,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['profile_picture'])) 
     </script>
 
 
-    <?php $returnLink = $user['role'] === 'admin' ? '/Projet%20Web/mvcUtilisateur/View/BackOffice/indeex.php' : '/Projet%20Web/mvcUtilisateur/View/FrontOffice/index.php'; ?>
+    <?php $returnLink = $user['role'] === 'admin' ? '/mvcUtilisateur/View/BackOffice/indeex.php' : '/mvcUtilisateur/View/FrontOffice/index.php'; ?>
     <a href="<?= $returnLink ?>" class="btn-secondary"> Retour à l'accueil</a>
     <div class="profile-container">
         <div class="profile-header">
@@ -369,7 +369,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['profile_picture'])) 
                 </script>
 
             </div>
-            <a href="/Projet%20Web/mvcUtilisateur/View/BackOffice/login/logout.php" class="btn-secondary">
+            <a href="/mvcUtilisateur/View/BackOffice/login/logout.php" class="btn-secondary">
                 <i class="fas fa-sign-out-alt"></i> Déconnexion
             </a>
         </div>
@@ -382,7 +382,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['profile_picture'])) 
         <div class="delete-form">
             <h3><i class="fas fa-exclamation-triangle"></i> Zone dangereuse</h3>
             <p>Cette action supprimera définitivement votre compte et toutes les données associées.</p>
-            <form action="/Projet%20Web/mvcUtilisateur/Controller/AccountController.php?action=delete" method="post" onsubmit="return confirmDelete()">
+            <form action="/mvcUtilisateur/Controller/AccountController.php?action=delete" method="post" onsubmit="return confirmDelete()">
                 <div class="password-container">
                     <label for="current_password">Confirmez votre mot de passe :</label><br>
                     <input type="password" id="current_password" name="current_password" required>
@@ -392,7 +392,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['profile_picture'])) 
                 </div>
                 <div class="action-buttons">
                     <button type="submit" class="btn-delete"><i class="fas fa-trash-alt"></i> Supprimer mon compte</button>
-                    <a href="/Projet%20Web/mvcUtilisateur/View/FrontOffice/edit_profile.php" class="btn-secondary"><i class="fas fa-edit"></i> Modifier mon profil</a>
+                    <a href="/mvcUtilisateur/View/FrontOffice/edit_profile.php" class="btn-secondary"><i class="fas fa-edit"></i> Modifier mon profil</a>
                 </div>
                 <?php if (isset($_SESSION['error'])): ?><p class="error-message"><?= htmlspecialchars($_SESSION['error']) ?></p><?php unset($_SESSION['error']);
                                                                                                                             endif; ?>

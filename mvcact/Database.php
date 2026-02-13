@@ -5,7 +5,7 @@ class Database {
     private $host = "localhost";
     private $username = "root";
     private $password = "";
-    private $dbname = "click'n'go";
+    private $dbname = "clickngo_db";
     private $conn;
     private static $instance = null;
 

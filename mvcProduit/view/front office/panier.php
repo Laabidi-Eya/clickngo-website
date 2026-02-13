@@ -556,7 +556,7 @@ if (isset($_GET['success'])): ?>
         function redirigerVersAcheter() {
 
             if (!isLoggedIn) {
-                window.location.href = '/Projet Web/mvcUtilisateur/View/BackOffice/login/login.php'; // redirection vers login
+                window.location.href = '/mvcUtilisateur/View/BackOffice/login/login.php'; // redirection vers login
             } else {
 
                 if (panier.length === 0) {

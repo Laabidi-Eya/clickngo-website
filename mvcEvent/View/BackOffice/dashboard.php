@@ -291,12 +291,12 @@ color: #333333;
     <div class="dashboard">
 <nav class="top-navbar">
     <div class="nav-links-container">
-        <a href="/Projet Web/mvcUtilisateur/View/BackOffice/indeex.php" class="nav-link">Utilisateurs</a>
-        <a href="/Projet Web/mvcact/view/back office/dashboard.php" class="nav-link" data-section="activites">Activités</a>
-        <a href="/Projet Web/mvcEvent/View/BackOffice/dashboard.php" class="nav-link active" data-section="evenements">Événements</a>
-        <a href="/Projet Web/mvcProduit/view/back office/indeex.php" class="nav-link" data-section="produits">Produits</a>
-        <a href="/Projet Web/mvcCovoiturage/view/backoffice/dashboard.php" class="nav-link" data-section="transports">Transports</a>
-        <a href="/Projet Web/mvcSponsor/crud/view/back/back.php" class="nav-link" data-section="sponsors">Sponsors</a>
+        <a href="/mvcUtilisateur/View/BackOffice/indeex.php" class="nav-link">Utilisateurs</a>
+        <a href="/mvcact/view/back office/dashboard.php" class="nav-link" data-section="activites">Activités</a>
+        <a href="/mvcEvent/View/BackOffice/dashboard.php" class="nav-link active" data-section="evenements">Événements</a>
+        <a href="/mvcProduit/view/back office/indeex.php" class="nav-link" data-section="produits">Produits</a>
+        <a href="/mvcCovoiturage/view/backoffice/dashboard.php" class="nav-link" data-section="transports">Transports</a>
+        <a href="/mvcSponsor/crud/view/back/back.php" class="nav-link" data-section="sponsors">Sponsors</a>
     </div>
 
     <div class="profile-container">
@@ -312,7 +312,7 @@ color: #333333;
             ?>
 
             <?php if ($showPhoto): ?>
-                <img src="/Projet Web/mvcUtilisateur/View/FrontOffice/<?= htmlspecialchars($photoPath) ?>"
+                <img src="/mvcUtilisateur/View/FrontOffice/<?= htmlspecialchars($photoPath) ?>"
                     alt="Photo de profil"
                     class="profile-photo"
                     onclick="toggleDropdown()">
@@ -325,8 +325,8 @@ color: #333333;
             <?php endif; ?>
 
             <div class="dropdown-menu" id="dropdownMenu">
-                <a href="/Projet Web/mvcUtilisateur/View/FrontOffice/profile.php">👤 Mon Profil</a>
-                <a href="/Projet Web/mvcUtilisateur/View/BackOffice/login/logout.php">🚪 Déconnexion</a>
+                <a href="/mvcUtilisateur/View/FrontOffice/profile.php">👤 Mon Profil</a>
+                <a href="/mvcUtilisateur/View/BackOffice/login/logout.php">🚪 Déconnexion</a>
             </div>
         <?php endif; ?>
     </div>
@@ -994,7 +994,7 @@ color: #333333;
             showLoading(grid);
             console.log('Fetching seats for event ID:', eventId);
             // Ajouter user_id à l'URL si disponible
-            const url = USER_ID ? `/Projet%20Web/mvcEvent/get_chaises.php?event_id=${eventId}&user_id=${USER_ID}` : `/Projet%20Web/mvcEvent/get_chaises.php?event_id=${eventId}`;
+            const url = USER_ID ? `/mvcEvent/get_chaises.php?event_id=${eventId}&user_id=${USER_ID}` : `/mvcEvent/get_chaises.php?event_id=${eventId}`;
             fetch(url)
                 .then(response => {
                     console.log('Fetch response status:', response.status);

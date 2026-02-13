@@ -677,12 +677,12 @@ function stringToColor($str)
       <div class="navbar-backoffice-wrapper">
         <nav class="navbar-backoffice">
           <ul>
-            <li><a href="/Projet%20Web/mvcUtilisateur/View/BackOffice/indeex.php" class="nav-link">Utilisateurs</a></li>
-            <li><a href="/Projet%20Web/mvcact/view/back%20office/dashboard.php" class="nav-link">Activités</a></li>
-            <li><a href="/Projet%20Web/mvcEvent/View/BackOffice/dashboard.php" class="nav-link">Événements</a></li>
-            <li><a href="/Projet%20Web/mvcProduit/view/back%20office/indeex.php" class="nav-link">Produits</a></li>
-            <li><a href="/Projet%20Web/mvcCovoiturage/view/backoffice/dashboard.php" class="nav-link active">Transports</a></li>
-            <li><a href="/Projet%20Web/mvcSponsor/crud/view/back/back.php" class="nav-link">Sponsors</a></li>
+            <li><a href="/mvcUtilisateur/View/BackOffice/indeex.php" class="nav-link">Utilisateurs</a></li>
+            <li><a href="/mvcact/view/back%20office/dashboard.php" class="nav-link">Activités</a></li>
+            <li><a href="/mvcEvent/View/BackOffice/dashboard.php" class="nav-link">Événements</a></li>
+            <li><a href="/mvcProduit/view/back%20office/indeex.php" class="nav-link">Produits</a></li>
+            <li><a href="/mvcCovoiturage/view/backoffice/dashboard.php" class="nav-link active">Transports</a></li>
+            <li><a href="/mvcSponsor/crud/view/back/back.php" class="nav-link">Sponsors</a></li>
             <li class="profile-container">
               <div class="user-profile">
                 <?php 
@@ -699,8 +699,8 @@ function stringToColor($str)
                 
                 // Try different possible paths for the profile picture
                 $possiblePaths = [
-                    "/Projet%20Web/mvcUtilisateur/View/FrontOffice/" . $photoPath,
-                    "/Projet%20Web/uploads/profiles/" . basename($photoPath),
+                    "/mvcUtilisateur/View/FrontOffice/" . $photoPath,
+                    "/uploads/profiles/" . basename($photoPath),
                     $photoPath
                 ];
                 
@@ -728,8 +728,8 @@ function stringToColor($str)
                 <?php endif; ?>
                 
                 <div class="dropdown-menu" id="dropdownMenu">
-                  <a href="/Projet%20Web/mvcUtilisateur/View/FrontOffice/profile.php">👤 Mon Profil</a>
-                  <a href="/Projet%20Web/mvcUtilisateur/View/BackOffice/login/logout.php">🚪 Déconnexion</a>
+                  <a href="/mvcUtilisateur/View/FrontOffice/profile.php">👤 Mon Profil</a>
+                  <a href="/mvcUtilisateur/View/BackOffice/login/logout.php">🚪 Déconnexion</a>
                 </div>
               </div>
             </li>
@@ -742,7 +742,7 @@ function stringToColor($str)
     <div class="sidebar">
         <div>
             <div class="sidebar-logo">
-                <img src="/Projet Web/mvcProduit/view/back office/logo.png" alt="Logo" class="logo">
+                <img src="/mvcProduit/view/back office/logo.png" alt="Logo" class="logo">
             </div>
             <div class="sidebar-menu">
                 <a href="dashboard.php" class="menu-item">

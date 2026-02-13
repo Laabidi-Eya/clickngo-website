@@ -582,7 +582,7 @@ function formatPrice($price) {
 </head>
 <body>
     <div class="button-container">
-        <a href="/Projet Web/mvcact/view/front office/activite.php" class="prev-btn" id="prev-btn">Retour</a>
+        <a href="/mvcact/view/front office/activite.php" class="prev-btn" id="prev-btn">Retour</a>
     </div>
     <div class="reservation-container">
         <h1>Réservez votre activité</h1>

@@ -19,7 +19,7 @@ class config
             $servername = "localhost";  // Nom du serveur
             $username = "root";         // Nom d'utilisateur de la base de données
             $password = "";     // Mot de passe de la base de données
-            $dbname = "click'n'go";       // Nom de la base de données
+            $dbname = "clickngo_db";       // Nom de la base de données
 
             try {
 

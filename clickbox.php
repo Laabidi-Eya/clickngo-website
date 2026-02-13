@@ -2,7 +2,7 @@
 session_start();
 require 'vendor/autoload.php';
 
-$pdo = new PDO("mysql:host=localhost;dbname=click'n'go;charset=utf8", "root", "");
+$pdo = new PDO("mysql:host=localhost;dbname=clickngo_db;charset=utf8", "root", "");
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 \Stripe\Stripe::setApiKey('sk_test_51RWP0vC1UtVHyc1Xdptio40hObkMap33k947ojEFDJLHankVCZT01cJ9IrPeKAHYpJlyIgm33RR4ydFl5rIqnTGT00n3juW2bw');
@@ -32,8 +32,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['price'])) {
             'quantity' => 1,
         ]],
         'mode' => 'payment',
-        'success_url' => 'http://localhost/Projet%20Web/clickbox.php?success=true&amount=' . $priceDT,
-        'cancel_url' => 'http://localhost/Projet%20Web/clickbox.php?cancel=true',
+        'success_url' => 'http://localhost:8000/clickbox.php?success=true&amount=' . $priceDT,
+        'cancel_url' => 'http://localhost:8000/clickbox.php?cancel=true',
     ]);
 
     header('Location: ' . $session->url);
@@ -105,7 +105,7 @@ if (!isset($_SESSION['clickbox_surprise']) && isset($_GET['success'], $_GET['amo
 
     if ($priceDT >= 250) {
         $surprise['product'] = $randomProduct['name'];
-        $surprise['product_image'] = 'http://localhost/Projet%20Web/mvcProduit/' . $randomProduct['photo'];
+        $surprise['product_image'] = 'http://localhost:8000/mvcProduit/' . $randomProduct['photo'];
         $surprise['poetry'] = generateTounsiPhraseGroq($prompt);
     }
 
@@ -224,7 +224,7 @@ button:hover {
 </head>
 <body>
 
-<form method="get" action="http://localhost/Projet Web/mvcProduit/view/front office/produit.php">
+<form method="get" action="http://localhost:8000/mvcProduit/view/front office/produit.php">
   <button type="submit">⬅️ Retour</button>
 </form>
 
@@ -297,8 +297,8 @@ if (!empty($surprise['activity_image'])) {
           <button type="submit" name="reset" value="1">🔁 Nouvelle ClickBox</button>
         </form>
         <div class="share-buttons">
-          <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost/Projet%20Web/clickbox.php" target="_blank">📢 Facebook</a>
-          <a href="https://wa.me/?text=J'ai%20reçu%20une%20ClickBox%20Mystère%20🎁%20sur%20Click'n'Go%20!%20http://localhost/Projet%20Web/clickbox.php" target="_blank">📲 WhatsApp</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:8000/clickbox.php" target="_blank">📢 Facebook</a>
+          <a href="https://wa.me/?text=J'ai%20reçu%20une%20ClickBox%20Mystère%20🎁%20sur%20Click'n'Go%20!%20http://localhost:8000/clickbox.php" target="_blank">📲 WhatsApp</a>
           <a href="https://www.instagram.com/" target="_blank">📷 Instagram</a>
         </div>
       </div>

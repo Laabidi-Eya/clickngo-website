@@ -4,7 +4,7 @@ require_once __DIR__ . '/../Config.php';
 require_once __DIR__ . '/../Model/User.php';
 
 if (!isset($_GET['action'])) {
-    header("Location: /Projet%20Web/index.php");
+    header("Location: /mvcUtilisateur/View/FrontOffice/index.php");
     exit;
 }
 
@@ -20,13 +20,13 @@ $db = Config::getConnexion();
 // --- SUPPRESSION DE COMPTE ---
 if ($action === 'delete') {
     if (!isset($_SESSION['user'])) {
-        header("Location: /Projet%20Web/index.php");
+        header("Location: /mvcUtilisateur/View/FrontOffice/index.php");
         exit;
     }
 
     if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
         $_SESSION['error'] = "Requête invalide.";
-        header("Location: /Projet%20Web/mvcUtilisateur/View/FrontOffice/profile.php");
+        header("Location: /mvcUtilisateur/View/FrontOffice/profile.php");
         exit;
     }
 
@@ -37,23 +37,23 @@ if ($action === 'delete') {
 
     if (!$confirmDelete) {
         $_SESSION['error'] = "Vous devez confirmer la suppression de votre compte.";
-        header("Location: /Projet%20Web/mvcUtilisateur/View/FrontOffice/profile.php");
+        header("Location: /mvcUtilisateur/View/FrontOffice/profile.php");
         exit;
     }
 
     if (!User::verifyPassword($db, $email, $currentPassword)) {
         $_SESSION['error'] = "Mot de passe incorrect.";
-        header("Location: /Projet%20Web/mvcUtilisateur/View/FrontOffice/profile.php");
+        header("Location: /mvcUtilisateur/View/FrontOffice/profile.php");
         exit;
     }
 
     if (User::deleteByEmail($db, $email)) {
         session_unset();
         session_destroy();
-        header("Location: /Projet%20Web/mvcUtilisateur/View/FrontOffice/index.php?account_deleted=1");
+        header("Location: /mvcUtilisateur/View/FrontOffice/index.php?account_deleted=1");
     } else {
         $_SESSION['error'] = "Une erreur est survenue lors de la suppression du compte.";
-        header("Location: /Projet%20Web/mvcUtilisateur/View/FrontOffice/profile.php");
+        header("Location: /mvcUtilisateur/View/FrontOffice/profile.php");
     }
     exit;
 }
@@ -61,7 +61,7 @@ if ($action === 'delete') {
 // --- MISE À JOUR DU PROFIL ---
 if ($action === 'update') {
     if (!isset($_SESSION['user'])) {
-        header("Location: /Projet%20Web/index.php");
+        header("Location: /mvcUtilisateur/View/FrontOffice/index.php");
         exit;
     }
 
@@ -84,12 +84,12 @@ if ($action === 'update') {
     if ($email !== $originalEmail) {
         if (empty($_POST['confirm_password'])) {
             $_SESSION['error'] = "Mot de passe requis pour changer l'email.";
-            header("Location: /Projet%20Web/mvcUtilisateur/View/FrontOffice/edit_profile.php");
+            header("Location: /mvcUtilisateur/View/FrontOffice/edit_profile.php");
             exit;
         }
         if (!User::verifyPassword($db, $originalEmail, $_POST['confirm_password'])) {
             $_SESSION['error'] = "Mot de passe incorrect pour changer l'email.";
-            header("Location: /Projet%20Web/mvcUtilisateur/View/FrontOffice/edit_profile.php");
+            header("Location: /mvcUtilisateur/View/FrontOffice/edit_profile.php");
             exit;
         }
         $updateEmail = true;
@@ -99,7 +99,7 @@ if ($action === 'update') {
     if (!empty($_POST['old_password']) && !empty($_POST['new_password'])) {
         if (!User::verifyPassword($db, $originalEmail, $_POST['old_password'])) {
             $_SESSION['error'] = "Mot de passe actuel incorrect.";
-            header("Location: /Projet%20Web/mvcUtilisateur/View/FrontOffice/edit_profile.php");
+            header("Location: /mvcUtilisateur/View/FrontOffice/edit_profile.php");
             exit;
         }
         $newPassword = password_hash($_POST['new_password'], PASSWORD_DEFAULT);
@@ -122,12 +122,12 @@ if ($action === 'update') {
 
         if (!in_array($ext, $allowed)) {
             $_SESSION['error'] = "Format non autorisé.";
-            header("Location: /Projet%20Web/mvcUtilisateur/View/FrontOffice/edit_profile.php");
+            header("Location: /mvcUtilisateur/View/FrontOffice/edit_profile.php");
             exit;
         }
 
         if (move_uploaded_file($tmpName, $destination)) {
-            $profilePicturePath = '/Projet Web/mvcUtilisateur/View/FrontOffice/uploads/profiles/' . $fileName;
+            $profilePicturePath = '/mvcUtilisateur/View/FrontOffice/uploads/profiles/' . $fileName;
         }
     }
 
@@ -151,7 +151,7 @@ if ($action === 'update') {
         $_SESSION['error'] = "Erreur lors de la mise à jour.";
     }
 
-    header("Location: /Projet%20Web/mvcUtilisateur/View/FrontOffice/profile.php");
+    header("Location: /mvcUtilisateur/View/FrontOffice/profile.php");
     exit;
 }
 

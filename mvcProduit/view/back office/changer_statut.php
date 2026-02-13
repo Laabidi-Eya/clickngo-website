@@ -1,6 +1,6 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $pdo = new PDO("mysql:host=localhost;dbname=click'n'go", "root", "");
+    $pdo = new PDO("mysql:host=localhost;dbname=clickngo_db", "root", "");
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $idCommande = $_POST['id_commande'];

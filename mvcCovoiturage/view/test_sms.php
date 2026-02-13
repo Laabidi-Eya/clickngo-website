@@ -628,7 +628,7 @@ if ($isNewSubmission) {
         </div>';
         
         // Ajouter un bouton pour revenir à la page des demandes
-        echo '<a href="/Projet Web/mvcCovoiturage/view/voir_demandes.php" class="back-button">
+        echo '<a href="/mvcCovoiturage/view/voir_demandes.php" class="back-button">
             <span class="icon">↩️</span>Retour aux demandes
         </a>';
         
@@ -646,7 +646,7 @@ if ($isNewSubmission) {
         </div>';
         
         // Ajouter un bouton pour revenir à la page des demandes
-        echo '<a href="/Projet Web/mvcCovoiturage/view/voir_demandes.php" class="back-button">
+        echo '<a href="/mvcCovoiturage/view/voir_demandes.php" class="back-button">
             <span class="icon">↩️</span>Retour aux demandes
         </a>';
     }

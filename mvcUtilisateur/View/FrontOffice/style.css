@@ -1743,6 +1743,48 @@ nav {
 .panorama-slider {
   background-color: #FAFAFA !important;
   color: #ffffff !important;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Forcer les produits côte à côte (horizontal) */
+.panorama-slider .swiper {
+  width: 100%;
+  overflow: hidden;
+}
+.panorama-slider .swiper-wrapper {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: stretch;
+}
+.panorama-slider .swiper-slide {
+  flex: 0 0 auto !important;
+  width: 25% !important;
+  min-width: 200px;
+  max-width: 280px;
+  box-sizing: border-box;
+  padding: 0 8px;
+}
+.panorama-slider .slide-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .panorama-slider .swiper-slide {
+    width: 33.333% !important;
+    min-width: 150px;
+  }
+}
+@media (max-width: 600px) {
+  .panorama-slider .swiper-slide {
+    width: 50% !important;
+    min-width: 140px;
+  }
 }
 
 /* Adapter les couleurs des éléments internes du slider */

@@ -93,7 +93,7 @@ $faceImagePath = '';
 if (!empty($faceImageData)) {
     try {
         // Vérifier si le dossier existe, sinon le créer
-        $faceImagesDir = 'C:/xampp/htdocs/Projet Web/mvcUtilisateur/database/face_images';
+        $faceImagesDir = 'C:/xampp/htdocs/mvcUtilisateur/database/face_images';
         if (!file_exists($faceImagesDir)) {
             mkdir($faceImagesDir, 0777, true);
         }
@@ -183,7 +183,7 @@ if ($userController->login($email, $password)) {
     $_SESSION['user'] = User::getUserByEmail($db, $email);
     
     // Rediriger vers la page demandée ou vers une page par défaut
-    $redirect_url = $_SESSION['redirect_url'] ?? '/Projet Web/mvcUtilisateur/View/FrontOffice/index.php';
+    $redirect_url = $_SESSION['redirect_url'] ?? '/mvcUtilisateur/View/FrontOffice/index.php';
     unset($_SESSION['redirect_url']); // Nettoyer
     header("Location: $redirect_url");
     exit();
@@ -288,7 +288,7 @@ function isStrongPassword($password)
                                                 </div>
 
                                                 <div class="text-right mt-1">
-                                                    <a href="/Projet Web/mvcUtilisateur/View/FrontOffice/reset_request.php" class="link">Mot de passe oublié ?</a>
+                                                    <a href="/mvcUtilisateur/View/FrontOffice/reset_request.php" class="link">Mot de passe oublié ?</a>
                                                 </div>
 
                                                 <div class="form-group mt-2">
@@ -305,7 +305,7 @@ function isStrongPassword($password)
                                                 <div class="form-group mt-2">
                                                     <p>Ou</p>
                                                     <a href="../../../auth/facebook.php" class="btn"><i class="fa-brands fa-facebook-f"></i></a>
-                                                    <a href="/Projet Web/mvcUtilisateur/auth/google.php" class="btn"><i class="fa-brands fa-google"></i></a>
+                                                    <a href="/mvcUtilisateur/auth/google.php" class="btn"><i class="fa-brands fa-google"></i></a>
                                                     <a href="#" class="btn"><i class="fa-brands fa-github"></i></a>
                                                 </div>
                                             </form>
@@ -416,7 +416,7 @@ function isStrongPassword($password)
                                                 <div class="form-group mt-2">
                                                     <p>Ou</p>
                                                     <a href="../../../auth/facebook.php" class="btn"><i class="fa-brands fa-facebook-f"></i></a>
-                                                    <a href="/Projet Web/mvcUtilisateur/auth/google.php" class="btn"><i class="fa-brands fa-google"></i></a>
+                                                    <a href="/mvcUtilisateur/auth/google.php" class="btn"><i class="fa-brands fa-google"></i></a>
                                                     <a href="#" class="btn"><i class="fa-brands fa-github"></i></a>
                                                 </div>
                                             </form>

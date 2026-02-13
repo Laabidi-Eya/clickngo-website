@@ -649,11 +649,11 @@ function stringToColor($str)
       <img src="images/logo.png" class="logo">
       <ul class="nav-links">
         <li><a href="#">Accueil</a></li>
-        <li><a href="/Projet Web/mvcact/view/front office/activite.php">Activités</a></li>
-        <li><a href="/Projet Web/mvcEvent/View/FrontOffice/evenemant.php">Événements</a></li>
-        <li><a href="/Projet Web/mvcProduit/view/front office/produit.php">Produits</a></li>
-        <li><a href="/Projet Web/mvcCovoiturage/view/index.php">Transports</a></li>
-        <li><a href="/Projet%20Web/mvcSponsor/crud/view/front/index.php">Sponsors</a></li>
+        <li><a href="/mvcact/view/front office/activite.php">Activités</a></li>
+        <li><a href="/mvcEvent/View/FrontOffice/evenemant.php">Événements</a></li>
+        <li><a href="/mvcProduit/view/front office/produit.php">Produits</a></li>
+        <li><a href="/mvcCovoiturage/view/index.php">Transports</a></li>
+        <li><a href="/mvcSponsor/crud/view/front/index.php">Sponsors</a></li>
       </ul>
 
       <script>
@@ -962,12 +962,12 @@ function stringToColor($str)
           <!-- ✅ Badge vérification -->
           <div class="verification-status" style="position: absolute; bottom: -5px; right: -5px;">
             <?php if ($verified): ?>
-              <img src="/Projet%20Web/mvcUtilisateur/assets/icons/verified.png"
+              <img src="/mvcUtilisateur/assets/icons/verified.png"
                 alt="Compte vérifié"
                 title="Compte Vérifié"
                 style="width: 20px; height: 20px;">
             <?php else: ?>
-              <img src="/Projet%20Web/mvcUtilisateur/assets/icons/not_verified.png"
+              <img src="/mvcUtilisateur/assets/icons/not_verified.png"
                 alt="Compte non vérifié"
                 title="Compte Non Vérifié"
                 style="width: 20px; height: 20px; cursor: pointer;"
@@ -977,8 +977,8 @@ function stringToColor($str)
 
           <!-- Menu déroulant -->
           <div class="dropdown-menu" id="dropdownMenu">
-            <a href="/Projet%20Web/mvcUtilisateur/View/FrontOffice/profile.php">👤 Mon Profil</a>
-            <a href="/Projet%20Web/mvcUtilisateur/View/BackOffice/login/logout.php">🚪 Déconnexion</a>
+            <a href="/mvcUtilisateur/View/FrontOffice/profile.php">👤 Mon Profil</a>
+            <a href="/mvcUtilisateur/View/BackOffice/login/logout.php">🚪 Déconnexion</a>
           </div>
         </div>
       <?php endif; ?>
@@ -1093,64 +1093,64 @@ function stringToColor($str)
 
         <!-- 🎯 PREMIER BLOC SPONSORS -->
         <div class="slide">
-          <a href="/Projet Web/mvcSponsor/crud/view/front/index.php">
-            <img src="/Projet Web/mvcSponsor/crud/view/front/images/sponsors/image1.png" alt="Shell" />
+          <a href="/mvcSponsor/crud/view/front/index.php">
+            <img src="/mvcSponsor/crud/view/front/images/sponsors/image1.png" alt="Shell" />
             <div class="caption">
               <h3>Shell</h3>
             </div>
           </a>
         </div>
         <div class="slide">
-          <a href="/Projet Web/mvcSponsor/crud/view/front/index.php">
-            <img src="/Projet Web/mvcSponsor/crud/view/front/images/sponsors/image2.png" alt="Traveltodo" />
+          <a href="/mvcSponsor/crud/view/front/index.php">
+            <img src="/mvcSponsor/crud/view/front/images/sponsors/image2.png" alt="Traveltodo" />
             <div class="caption">
               <h3>Traveltodo</h3>
             </div>
           </a>
         </div>
         <div class="slide">
-          <a href="/Projet Web/mvcSponsor/crud/view/front/index.php">
-            <img src="/Projet Web/mvcSponsor/crud/view/front/images/sponsors/image3.png" alt="Dabchy" />
+          <a href="/mvcSponsor/crud/view/front/index.php">
+            <img src="/mvcSponsor/crud/view/front/images/sponsors/image3.png" alt="Dabchy" />
             <div class="caption">
               <h3>Dabchy</h3>
             </div>
           </a>
         </div>
         <div class="slide">
-          <a href="/Projet Web/mvcSponsor/crud/view/front/index.php">
-            <img src="/Projet Web/mvcSponsor/crud/view/front/images/sponsors/image4.png" alt="Pathe" />
+          <a href="/mvcSponsor/crud/view/front/index.php">
+            <img src="/mvcSponsor/crud/view/front/images/sponsors/image4.png" alt="Pathe" />
             <div class="caption">
               <h3>Pathe</h3>
             </div>
           </a>
         </div>
         <div class="slide">
-          <a href="/Projet Web/mvcSponsor/crud/view/front/index.php">
-            <img src="/Projet Web/mvcSponsor/crud/view/front/images/sponsors/image5.jpeg" alt="Saida" />
+          <a href="/mvcSponsor/crud/view/front/index.php">
+            <img src="/mvcSponsor/crud/view/front/images/sponsors/image5.jpeg" alt="Saida" />
             <div class="caption">
               <h3>Saida</h3>
             </div>
           </a>
         </div>
         <div class="slide">
-          <a href="/Projet Web/mvcSponsor/crud/view/front/index.php">
-            <img src="/Projet Web/mvcSponsor/crud/view/front/images/sponsors/image6.jpeg" alt="Lella" />
+          <a href="/mvcSponsor/crud/view/front/index.php">
+            <img src="/mvcSponsor/crud/view/front/images/sponsors/image6.jpeg" alt="Lella" />
             <div class="caption">
               <h3>Lella</h3>
             </div>
           </a>
         </div>
         <div class="slide">
-          <a href="/Projet Web/mvcSponsor/crud/view/front/index.php">
-            <img src="/Projet Web/mvcSponsor/crud/view/front/images/sponsors/image7.jpg" alt="ooredoo" />
+          <a href="/mvcSponsor/crud/view/front/index.php">
+            <img src="/mvcSponsor/crud/view/front/images/sponsors/image7.jpg" alt="ooredoo" />
             <div class="caption">
               <h3>ooredoo</h3>
             </div>
           </a>
         </div>
         <div class="slide">
-          <a href="/Projet Web/mvcSponsor/crud/view/front/index.php">
-            <img src="/Projet Web/mvcSponsor/crud/view/front/images/sponsors/image8.png" alt="Vitalait" />
+          <a href="/mvcSponsor/crud/view/front/index.php">
+            <img src="/mvcSponsor/crud/view/front/images/sponsors/image8.png" alt="Vitalait" />
             <div class="caption">
               <h3>Vitalait</h3>
             </div>
@@ -1159,64 +1159,64 @@ function stringToColor($str)
 
         <!-- 🔁 DUPLICATION SPONSORS -->
         <div class="slide">
-          <a href="/Projet Web/mvcSponsor/crud/view/front/index.php">
-            <img src="/Projet Web/mvcSponsor/crud/view/front/images/sponsors/image1.png" alt="Shell" />
+          <a href="/mvcSponsor/crud/view/front/index.php">
+            <img src="/mvcSponsor/crud/view/front/images/sponsors/image1.png" alt="Shell" />
             <div class="caption">
               <h3>Shell</h3>
             </div>
           </a>
         </div>
         <div class="slide">
-          <a href="/Projet Web/mvcSponsor/crud/view/front/index.php">
-            <img src="/Projet Web/mvcSponsor/crud/view/front/images/sponsors/image2.png" alt="Traveltodo" />
+          <a href="/mvcSponsor/crud/view/front/index.php">
+            <img src="/mvcSponsor/crud/view/front/images/sponsors/image2.png" alt="Traveltodo" />
             <div class="caption">
               <h3>Traveltodo</h3>
             </div>
           </a>
         </div>
         <div class="slide">
-          <a href="/Projet Web/mvcSponsor/crud/view/front/index.php">
-            <img src="/Projet Web/mvcSponsor/crud/view/front/images/sponsors/image3.png" alt="Dabchy" />
+          <a href="/mvcSponsor/crud/view/front/index.php">
+            <img src="/mvcSponsor/crud/view/front/images/sponsors/image3.png" alt="Dabchy" />
             <div class="caption">
               <h3>Dabchy</h3>
             </div>
           </a>
         </div>
         <div class="slide">
-          <a href="/Projet Web/mvcSponsor/crud/view/front/index.php">
-            <img src="/Projet Web/mvcSponsor/crud/view/front/images/sponsors/image4.png" alt="Pathe" />
+          <a href="/mvcSponsor/crud/view/front/index.php">
+            <img src="/mvcSponsor/crud/view/front/images/sponsors/image4.png" alt="Pathe" />
             <div class="caption">
               <h3>Pathe</h3>
             </div>
           </a>
         </div>
         <div class="slide">
-          <a href="/Projet Web/mvcSponsor/crud/view/front/index.php">
-            <img src="/Projet Web/mvcSponsor/crud/view/front/images/sponsors/image5.jpeg" alt="Saida" />
+          <a href="/mvcSponsor/crud/view/front/index.php">
+            <img src="/mvcSponsor/crud/view/front/images/sponsors/image5.jpeg" alt="Saida" />
             <div class="caption">
               <h3>Saida</h3>
             </div>
           </a>
         </div>
         <div class="slide">
-          <a href="/Projet Web/mvcSponsor/crud/view/front/index.php">
-            <img src="/Projet Web/mvcSponsor/crud/view/front/images/sponsors/image6.jpeg" alt="Lella" />
+          <a href="/mvcSponsor/crud/view/front/index.php">
+            <img src="/mvcSponsor/crud/view/front/images/sponsors/image6.jpeg" alt="Lella" />
             <div class="caption">
               <h3>Lella</h3>
             </div>
           </a>
         </div>
         <div class="slide">
-          <a href="/Projet Web/mvcSponsor/crud/view/front/index.php">
-            <img src="/Projet Web/mvcSponsor/crud/view/front/images/sponsors/image7.jpg" alt="ooredoo" />
+          <a href="/mvcSponsor/crud/view/front/index.php">
+            <img src="/mvcSponsor/crud/view/front/images/sponsors/image7.jpg" alt="ooredoo" />
             <div class="caption">
               <h3>ooredoo</h3>
             </div>
           </a>
         </div>
         <div class="slide">
-          <a href="/Projet Web/mvcSponsor/crud/view/front/index.php">
-            <img src="/Projet Web/mvcSponsor/crud/view/front/images/sponsors/image8.png" alt="Vitalait" />
+          <a href="/mvcSponsor/crud/view/front/index.php">
+            <img src="/mvcSponsor/crud/view/front/images/sponsors/image8.png" alt="Vitalait" />
             <div class="caption">
               <h3>Vitalait</h3>
             </div>
@@ -1238,7 +1238,7 @@ function stringToColor($str)
     </script>
 
     <div style="text-align: center; margin: 30px 0;">
-      <a href="/Projet Web/mvcSponsor/crud/view/front/index.php" class="see-all-link">proposer un sposoring &gt;</a>
+      <a href="/mvcSponsor/crud/view/front/index.php" class="see-all-link">proposer un sposoring &gt;</a>
     </div>
 
     <script>
@@ -1394,7 +1394,7 @@ function stringToColor($str)
           showMessage(message);
 
           setTimeout(() => {
-            window.location.href = "/Projet Web/mvcact/view/front office/activite.php";
+            window.location.href = "/mvcact/view/front office/activite.php";
           }, 4000);
         });
       });
@@ -1432,32 +1432,32 @@ function stringToColor($str)
     <h2 class="subtitle">Nos Événements</h2>
     <!-- HTML des événements -->
     <div class="events">
-      <a href="/Projet Web/mvcEvent/View/FrontOffice/evenemant.php" class="event-card" data-type="Festivals & Culture">
+      <a href="/mvcEvent/View/FrontOffice/evenemant.php" class="event-card" data-type="Festivals & Culture">
         <img src="images/fes.jpg" alt="Événement 1">
         <h3>Festivals & Culture</h3>
       </a>
 
-      <a href="/Projet Web/mvcEvent/View/FrontOffice/evenemant.php" class="event-card" data-type="Concerts & Musique">
+      <a href="/mvcEvent/View/FrontOffice/evenemant.php" class="event-card" data-type="Concerts & Musique">
         <img src="images/mus.jpg" alt="Événement 2">
         <h3>Concerts & Musique</h3>
       </a>
 
-      <a href="/Projet Web/mvcEvent/View/FrontOffice/evenemant.php" class="event-card" data-type="Famille & Enfants">
+      <a href="/mvcEvent/View/FrontOffice/evenemant.php" class="event-card" data-type="Famille & Enfants">
         <img src="images/fam.jpg" alt="Événement 3">
         <h3>Famille & Enfants (Kids Friendly)</h3>
       </a>
 
-      <a href="/Projet Web/mvcEvent/View/FrontOffice/evenemant.php" class="event-card" data-type="Challenges & Récompenses">
+      <a href="/mvcEvent/View/FrontOffice/evenemant.php" class="event-card" data-type="Challenges & Récompenses">
         <img src="images/groupe.jpg" alt="Événement 4">
         <h3>Récompenses ou Challenges</h3>
       </a>
 
-      <a href="/Projet Web/mvcEvent/View/FrontOffice/evenemant.php" class="event-card" data-type="Événements Thématiques">
+      <a href="/mvcEvent/View/FrontOffice/evenemant.php" class="event-card" data-type="Événements Thématiques">
         <img src="images/hallo.jpg" alt="Événement 5">
         <h3>Saisonniers ou Thématiques</h3>
       </a>
 
-      <a href="/Projet Web/mvcEvent/View/FrontOffice/evenemant.php" class="event-card" data-type="Soirées privées">
+      <a href="/mvcEvent/View/FrontOffice/evenemant.php" class="event-card" data-type="Soirées privées">
         <img src="images/fete.jpg" alt="Événement 6">
         <h3>Privés / Fêtes</h3>
       </a>
@@ -1509,7 +1509,7 @@ function stringToColor($str)
 
 
     <div class="see-all-events">
-      <a href="/Projet Web/mvcEvent/View/FrontOffice/evenemant.php" class="see-all-link">Voir tous les événements &gt;</a>
+      <a href="/mvcEvent/View/FrontOffice/evenemant.php" class="see-all-link">Voir tous les événements &gt;</a>
 
     </div>
 
@@ -1564,7 +1564,7 @@ function stringToColor($str)
 
 
     <div class="see-all-events">
-      <a href="/Projet Web/mvcProduit/view/front office/produit.php" class="see-all-link">Voir tous les produits &gt;</a>
+      <a href="/mvcProduit/view/front office/produit.php" class="see-all-link">Voir tous les produits &gt;</a>
 
     </div>
 
@@ -1604,7 +1604,7 @@ function stringToColor($str)
               e.preventDefault();
               showMessage("Redirection vers la page de covoiturage... 🚙");
               setTimeout(() => {
-                window.location.href = "/Projet Web/mvcCovoiturage/view/index.php";
+                window.location.href = "/mvcCovoiturage/view/index.php";
               }, 1500);
             });
           </script>
@@ -1719,7 +1719,7 @@ function stringToColor($str)
 
         <div class="links">
           <p>À propos</p>
-          <a href="/Projet%20Web/mvcact/view/front%20office/about.php">À propos</a>
+          <a href="/mvcact/view/front%20office/about.php">À propos</a>
           <script>
             const aboutLink = document.querySelector('a[href*="about.php"]');
 
@@ -1742,7 +1742,7 @@ function stringToColor($str)
           </script>
 
 
-          <a href="/Projet%20Web/mvcact/view/front%20office/presse.php">Presse</a>
+          <a href="/mvcact/view/front%20office/presse.php">Presse</a>
           <script>
             const presseLink = document.querySelector('a[href*="presse.php"]');
 
@@ -1764,7 +1764,7 @@ function stringToColor($str)
             }
           </script>
 
-          <a href="/Projet%20Web/mvcact/view/front%20office/nous-rejoindre.php">Nous rejoindre</a>
+          <a href="/mvcact/view/front%20office/nous-rejoindre.php">Nous rejoindre</a>
           <script>
             const joinLink = document.querySelector('a[href*="nous-rejoindre.php"]');
 
@@ -1789,7 +1789,7 @@ function stringToColor($str)
 
         <div class="links">
           <p>Liens utiles</p>
-          <a href="/Projet Web/mvcact/view/front office/devenir-partenaire.php" class="hover:text-[#be3cf0]">Devenir partenaire</a>
+          <a href="/mvcact/view/front office/devenir-partenaire.php" class="hover:text-[#be3cf0]">Devenir partenaire</a>
 
           <script>
             const partnerLinkFooter = document.getElementById('partnerLink');
@@ -1809,7 +1809,7 @@ function stringToColor($str)
             });
           </script>
 
-          <a href="/Projet Web/mvcact/view/front office/faq.php" class="hover:text-[#be3cf0]">FAQ</a>
+          <a href="/mvcact/view/front office/faq.php" class="hover:text-[#be3cf0]">FAQ</a>
 
           <script>
             const faqLink = document.getElementById('faqLink');
@@ -1825,7 +1825,7 @@ function stringToColor($str)
             });
           </script>
 
-          <a href="/Projet Web/mvcact/view/front office/avis.php" class="hover:text-[#be3cf0]">Avis</a>
+          <a href="/mvcact/view/front office/avis.php" class="hover:text-[#be3cf0]">Avis</a>
           <script>
             const avisLink = document.getElementById('avisLink');
 
@@ -1849,7 +1849,7 @@ function stringToColor($str)
         <div class="footer-bottom">
           <p>© click'N'go 2025 - tous droits réservés</p>
           <div class="footer-links-bottom">
-            <a href="/Projet Web/mvcact/view/front office/conditions-generales.php" class="hover:text-[#be3cf0]" id="conditionsLink">Conditions générales</a>
+            <a href="/mvcact/view/front office/conditions-generales.php" class="hover:text-[#be3cf0]" id="conditionsLink">Conditions générales</a>
 
             <script>
               const conditionsLink = document.getElementById('conditionsLink');
@@ -1865,7 +1865,7 @@ function stringToColor($str)
               });
             </script>
 
-            <a href="/Projet Web/mvcact/view/front office/devenir-partenaire.php" class="hover:text-[#be3cf0]" id="partnerLink">Devenir partenaire</a>
+            <a href="/mvcact/view/front office/devenir-partenaire.php" class="hover:text-[#be3cf0]" id="partnerLink">Devenir partenaire</a>
 
             <script>
               const partnerLinkBottom = document.getElementById('partnerLink');
