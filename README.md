@@ -1,12 +1,11 @@
-# ClickNGo – Site web
-
-## Description
+🚀 ClickNGo – Plateforme Web de Loisirs
+## 🌍 À propos du projet
 
 ClickNGo est une plateforme web tunisienne de loisirs qui liste des activités par catégorie. Les utilisateurs peuvent réserver en ligne, explorer les événements, acheter des produits associés, utiliser le covoiturage et découvrir les sponsors. Des modules alimentés par l’IA personnalisent les recommandations.
 
 ---
 
-## Fonctionnalités
+## ✨ Fonctionnalités principales
 
 - Réservation en ligne d’activités
 - Découverte d’événements
@@ -17,7 +16,7 @@ ClickNGo est une plateforme web tunisienne de loisirs qui liste des activités p
 
 ---
 
-## Stack technique
+## 🛠 Stack Technique
 
 - **Frontend** : HTML, CSS, JavaScript
 - **Backend** : PHP, MySQL
